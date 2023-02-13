@@ -18,8 +18,13 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', 
+  '@typescript-eslint', 
+  'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
+    "prettier/prettier": 0,
+    "@typescript-eslint/no-shadow": "off"
+
   },
 };
