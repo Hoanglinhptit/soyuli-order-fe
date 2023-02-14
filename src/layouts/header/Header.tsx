@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { ShoppingOutlined, SearchOutlined } from '@ant-design/icons';
+import {
+  ShoppingOutlined,
+  SearchOutlined,
+  LogoutOutlined,
+} from '@ant-design/icons';
 import { Button, AutoComplete, Input } from 'antd';
 import './Header.scss';
 import Logo from '../../assets/logo/Logo.svg';
@@ -9,15 +13,15 @@ import Logo from '../../assets/logo/Logo.svg';
 //   handleSearch :
 // }
 interface Props {
-  value : string;
-  onSearch: () => void;
+  value: string;
+  onSearch: (query: string) => void;
   onSeclect: (query: string) => void;
   onChange: (query: string) => void;
 }
-export default function Header(props:Props) {
-  const {onSearch,onChange,onSeclect,value}= props;
-  const [isLogin, setIsLogin] = useState<boolean>(false);
- 
+export default function Header(props: Props) {
+  const { onSearch, onChange, onSeclect, value } = props;
+  const [isLogin, setIsLogin] = useState<boolean>(true);
+
   return (
     <div className="header-container">
       <div className="header-grid">
@@ -35,11 +39,10 @@ export default function Header(props:Props) {
                 onSearch={onSearch}
                 onSelect={onSeclect}
                 onChange={onChange}
-                
               >
                 <Input className="search-input" placeholder="Searching" />
               </AutoComplete>
-              <Button className="search-button" onClick={()=>onSearch}>
+              <Button className="search-button" onClick={() => onSearch}>
                 <SearchOutlined />
               </Button>
             </div>
@@ -48,7 +51,7 @@ export default function Header(props:Props) {
             <ul className="header-navbar-list">
               <li className="header-navbar-item">
                 <a href="/" className="header-item-link">
-                  Notification
+                  News
                 </a>
               </li>
               <li className="header-navbar-item">
@@ -81,9 +84,14 @@ export default function Header(props:Props) {
                     </li>
                   </ul>
                 ) : (
-                  <span className="header-navbar--user">
-                    Xin chào Lê Hoàng Linh !
-                  </span>
+                  <div className="user-wrapper">
+                    <span className="header-navbar--user">
+                      Xin chào Lê Linh!
+                    </span>
+                    <Button style={{border:"none"}}>
+                      <LogoutOutlined style={{fontSize:"1.2rem"}}/>
+                    </Button>
+                  </div>
                 )}
               </li>
             </ul>
