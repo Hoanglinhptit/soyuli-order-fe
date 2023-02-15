@@ -1,21 +1,8 @@
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { useState } from 'react';
 import './Login.scss';
+
 export default function Login() {
-    const [type, setType] = useState("password")
-    const [icon, setIcon] = useState("<EyeOutlined />")
-    const [value, setValue] = useState()
-    const handleToggle = () => {
-        
-        if(type === "password"){
-            setType("text")
-            setIcon("<EyeInvisibleOutlined />")
-        }
-        else {
-            setType("password")
-            setIcon("<EyeOutlined />")
-        }
-    }
+    
   return <div className="wapper">
   <div className="wapper-child">
       <div className="sign-in">
@@ -32,19 +19,14 @@ export default function Login() {
                   <button className="lock">
                         <LockOutlined />
                   </button>
-                  {/* <input className="password" type={type} placeholder='Mật khẩu' onChange={(e) => setValue(e.target.value)}/> */}
-                  {value && (
-                      <span className="password__display" onClick={handleToggle}>
-                          {/* <FontAwesomeIcon icon={icon}/> */}
-                      </span>
-                  )}
+                  <input className="password" placeholder='Mật khẩu'/>
               </div>
               <span className="forgot-password">Quên mật khẩu?</span>
               <div className="form-footer">
-                  {/* <Link className="form-btn" to="/register">Tạo tài khoản mới</Link>
-                  <Link to="/">
-                      <button className="form-btn">Đăng nhập</button>
-                  </Link> */}
+                <a className="form-btn">Tạo tài khoản mới</a>
+                <a>
+                    <button className="form-btn">Đăng nhập</button>
+                </a>
               </div>
           </form>
       </div>
