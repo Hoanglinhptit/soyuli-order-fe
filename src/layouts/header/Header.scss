@@ -7,7 +7,7 @@ $basedWidth: 1200px;
     }
   }
   @if $breakpoint == laptop {
-    @media (max-width: 1400px) {
+    @media (max-width: 1600px) {
       @content;
     }
   }
@@ -129,7 +129,7 @@ $basedWidth: 1200px;
     }
     .search-input{
       width: 100%;
-      
+
     }
     .search-button {
       margin-left: 8px;
@@ -145,4 +145,5 @@ $basedWidth: 1200px;
   height: 40px;
   font-weight: 400;
 }
+
 

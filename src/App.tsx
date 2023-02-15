@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import Header from './layouts/header/Header';
