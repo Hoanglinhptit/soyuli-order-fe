@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import Header from './layouts/header/Header';
 import Login from './layouts/account/login/Login'
-
+import Browse from './layouts/browse/Browse'
 
 export  default function App() {
   const [value, setValue] = useState<string>('');
@@ -21,7 +21,8 @@ export  default function App() {
     <div>
       <Helmet><title>Soyuli Order</title></Helmet>
       <Header onSearch={onSearch} onChange={onChange} value={value} onSeclect={onSelect}/>
-      <Login></Login>
+      {/* <Login></Login> */}
+      <Browse></Browse>
     </div>
   );
 }
