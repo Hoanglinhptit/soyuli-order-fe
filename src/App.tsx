@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from './layouts/header/Header';
 import Login from './layouts/account/login/Login'
 import Browse from './layouts/browse/Browse'
+import Footer from './layouts/footer/Footer';
 
 export  default function App() {
   const [value, setValue] = useState<string>('');
@@ -23,6 +24,7 @@ export  default function App() {
       <Header onSearch={onSearch} onChange={onChange} value={value} onSeclect={onSelect}/>
       {/* <Login></Login> */}
       <Browse></Browse>
+      <Footer></Footer>
     </div>
   );
 }
