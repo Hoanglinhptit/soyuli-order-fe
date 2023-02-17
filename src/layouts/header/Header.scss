@@ -8,6 +8,7 @@ $basedWidth: 1200px;
   }
   @if $breakpoint == laptop {
     @media (max-width: 1600px) {
+    @media (max-width: 1600px) {
       @content;
     }
   }
@@ -23,10 +24,11 @@ $basedWidth: 1200px;
     @content;
   }
 }
-
+}
 .header-container {
   height: $headerHeight;
   box-shadow: 0 0 10px #ccc;
+  width: 100%;
   .header_bread-scrum {
     background-color: #d6d3cd;
     width: 100%;
@@ -132,7 +134,7 @@ $basedWidth: 1200px;
     }
     .search-input{
       width: 100%;
-      
+
     }
     .search-button {
       margin-left: 8px;

@@ -40,7 +40,7 @@ export default function Header(props: Props) {
                 onSelect={onSeclect}
                 onChange={onChange}
               >
-                <Input className="search-input" placeholder="Searching" />
+                <Input className="search-input" placeholder="Searching"/>
               </AutoComplete>
               <Button className="search-button" onClick={() => onSearch}>
                 <SearchOutlined />

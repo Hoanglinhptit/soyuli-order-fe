@@ -122,3 +122,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+:root {
+  --primary: #d6d3cd;
+  --main: #000;
+  --text-color: #fff;
+}
