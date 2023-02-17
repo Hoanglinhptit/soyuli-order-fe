@@ -1,8 +1,7 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import Header from './layouts/header/Header';
-
+import LoginCp from './pages/auth/Login';
 
 export  default function App() {
   const [value, setValue] = useState<string>('');
@@ -20,6 +19,7 @@ export  default function App() {
     <div>
       <Helmet><title>Soyuli Order</title></Helmet>
       <Header onSearch={onSearch} onChange={onChange} value={value} onSeclect={onSelect}/>
+      <LoginCp/>
     </div>
   );
 }
