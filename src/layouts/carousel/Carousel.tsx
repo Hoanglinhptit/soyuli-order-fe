@@ -12,12 +12,24 @@ const MockVal = [
     content: '',
     id: 1,
   },
+  {
+    content: '',
+    id: 2,
+  },
+  {
+    content: '',
+    id: 3,
+  },
+  {
+    content: '',
+    id: 4,
+  },
 ];
 export default function CarouselWrapper() {
   return (
     <div>
       <Carousel autoplay>
-        {MockVal.map((e, i) => {
+        {MockVal.map((e) => {
           return (
             <div key={e.id}>
               <h3 style={contentStyle}>{e.content}</h3>
