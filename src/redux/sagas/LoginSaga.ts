@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as actions from '../actions';
-import loginRequest from '../../apis/apiClients';
+import *as callAPI from '../../apis/apiClients';
 
 interface LoginPayload {
   payload: {
@@ -12,7 +12,7 @@ interface LoginPayload {
 function* loginSaga(action: LoginPayload): any {
     console.log("saga working")
   try {
-    const res = yield loginRequest(action.payload);
+    const res = yield callAPI.loginRequest(action.payload);
     if (res) {
         console.log("res" , res.data.data)
       yield put(actions.loginSuccess(res.data.data.user));

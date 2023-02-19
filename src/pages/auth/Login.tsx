@@ -13,7 +13,7 @@ function LoginCp() {
     passWord: '',
   });
   const [show, setShow] = React.useState<boolean>(false);
-  const auth = useAppSelector((state: RootState) => state.authReducer);
+  const auth = useAppSelector((state: RootState) => state.AuthReducer);
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, react-hooks/rules-of-hooks
   const dispatch = useAppDispatch();
   const navigate: NavigateFunction = useNavigate();

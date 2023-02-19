@@ -4,6 +4,7 @@ import Funiture from '../pages/furniture';
 import Home from '../pages/home';
 import Shoes from '../pages/shoes';
 import Clothes from '../pages/clothes';
+import HouseWare from '../pages/houseware';
 
 const SOYULI_ROUTES = [
   {
@@ -23,12 +24,12 @@ const SOYULI_ROUTES = [
     element: <Shoes />,
   },
   {
-    path: '/Request-Management/Overtime-Request',
-    element: <div>hi</div>,
+    path: '/products/houseware',
+    element: <HouseWare/>,
   },
   {
     path: '/',
-    element: <Home />,
+    element: <Home/>,
   },
   {
     path: '/products/clothes',

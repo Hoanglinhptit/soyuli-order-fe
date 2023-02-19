@@ -86,7 +86,7 @@ export default function Header(props: Props) {
                 ) : (
                   <div className="user-wrapper">
                     <span className="header-navbar--user">
-                      Xin chào Lê Linh!
+                      Hi,Lê Linh!
                     </span>
                     <Button style={{border:"none"}}>
                       <LogoutOutlined style={{fontSize:"1.2rem"}}/>

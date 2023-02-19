@@ -2,11 +2,11 @@
 import './Browse.scss';
 import { DownOutlined } from '@ant-design/icons';
 
-export default function Footer() {
+export default function Browse() {
   return <div className='wapper'>
     <div className='title'>
         <h1 className='browse-title'>Sneakers</h1>
-        <span className='browse-about'>Every sneaker you want is always available and verified by StockX. Buy and sell new sneakers & shoes from Air Jordan, adidas, Nike, Yeezy and more!</span>
+        <span className='browse-about'>Every sneaker you want is always available and verified by Soyuli. Elevate your life and style with Soyuli, here we sell all kinds of accessories, shoes, clothes, housewares, furniture, decorations and more features</span>
     </div>
     <div className='product'>
         <div className='product-navs'>

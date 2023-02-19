@@ -5,7 +5,7 @@ import { AndroidFilled, AppleFilled, FacebookOutlined, InstagramOutlined, Twitte
 export default function Footer() {
   return <div className='footer'>
     <div className='wapper'>
-      <h1 className='footer-title'>StockX.Access the Now.</h1>
+      <h1 className='footer-title'>Soyuli.Access the Now.</h1>
       <div className='footer-shoe'>
         <Row>
           <Col span={4}>
@@ -64,7 +64,7 @@ export default function Footer() {
           </Col>
         </Row>
       </div>
-      <hr></hr>
+      <hr/>
       <div className='footer-about'>
         <div>
             <button className='footer-btn'>Vietnam | English | Currency</button>
@@ -86,7 +86,7 @@ export default function Footer() {
             </div>
         </div>
         <div>
-            <p>Proudly Built in Detroit</p>
+            <p>Proudly Built in HaNoi, VietNam</p>
         </div>
       </div>
     </div>

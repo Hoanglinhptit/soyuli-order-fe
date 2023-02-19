@@ -4,7 +4,7 @@ import fakeAuthProvider from "./auth";
 import AuthContext from './authConfig';
 
 interface AuthProviderProps {
-    children: React.ReactNode;
+    children: Record<string, any>;
   }
   
   interface AuthContextValue {
