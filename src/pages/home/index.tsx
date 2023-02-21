@@ -1,8 +1,9 @@
 import React from 'react'
+import Browse from '../../layouts/browse/Browse'
 
 function Home() {
   return (
-    <div>index</div>
+    <div><Browse/></div>
   )
 }
 

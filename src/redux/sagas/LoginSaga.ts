@@ -15,7 +15,7 @@ function* loginSaga(action: LoginPayload): any {
     const res = yield callAPI.loginRequest(action.payload);
     if (res) {
         console.log("res" , res.data.data)
-      yield put(actions.loginSuccess(res.data.data.user));
+      yield put(actions.loginSuccess(res.data.data));
       yield localStorage.setItem('token', res.data.data.token);
     }
   } catch (error) {

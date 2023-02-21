@@ -1,6 +1,7 @@
-import './Footer.scss';
+
 import { Col, Row } from 'antd';
 import { AndroidFilled, AppleFilled, FacebookOutlined, InstagramOutlined, TwitterOutlined, YoutubeOutlined } from '@ant-design/icons';
+import './Footer.scss';
 
 export default function Footer() {
   return <div className='footer'>
