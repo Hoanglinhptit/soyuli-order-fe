@@ -6,6 +6,8 @@ import {
 } from '@ant-design/icons';
 import { Button, AutoComplete, Input } from 'antd';
 import './Header.scss';
+import { RootState } from '../../redux/store';
+import { useAppSelector } from '../../redux/hooks';
 import Logo from '../../assets/logo/Logo.svg';
 
 // interface PropsType = {
@@ -20,14 +22,15 @@ interface Props {
 }
 export default function Header(props: Props) {
   const { onSearch, onChange, onSeclect, value } = props;
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const isAuth = localStorage.getItem('token');
+  const auth = useAppSelector((state: RootState) => state.AuthReducer);
 
   return (
     <div className="header-container">
       <div className="header-grid">
         <nav className="header_navbar--container">
           <div className="header-logo">
-            <a href="/" className="header-item-link">
+            <a href="/home" className="header-item-link">
               <img src={Logo} alt="Logo" className="header-logo-img" />
             </a>
           </div>
@@ -40,7 +43,7 @@ export default function Header(props: Props) {
                 onSelect={onSeclect}
                 onChange={onChange}
               >
-                <Input className="search-input" placeholder="Searching"/>
+                <Input className="search-input" placeholder="Searching" />
               </AutoComplete>
               <Button className="search-button" onClick={() => onSearch}>
                 <SearchOutlined />
@@ -50,7 +53,7 @@ export default function Header(props: Props) {
           <div className="header-navbar_list-wrapper">
             <ul className="header-navbar-list">
               <li className="header-navbar-item">
-                <a href="/" className="header-item-link">
+                <a href="/news" className="header-item-link">
                   News
                 </a>
               </li>
@@ -70,10 +73,10 @@ export default function Header(props: Props) {
                 </a>
               </li>
               <li className="header-navbar-item-authen">
-                {!isLogin ? (
+                {!isAuth ? (
                   <ul className="header-navbar--authen">
                     <li>
-                      <a href="/" className="header-item-link">
+                      <a href="/auth/login" className="header-item-link">
                         Login
                       </a>
                     </li>
@@ -85,11 +88,15 @@ export default function Header(props: Props) {
                   </ul>
                 ) : (
                   <div className="user-wrapper">
-                    <span className="header-navbar--user">
-                      Hi,Lê Linh!
-                    </span>
-                    <Button style={{border:"none"}}>
-                      <LogoutOutlined style={{fontSize:"1.2rem"}}/>
+                    <span className="header-navbar--user">Hi,{auth.data.name}!</span>
+                    <Button
+                      style={{ border: 'none' }}
+                      onClick={() => {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                      }}
+                    >
+                      <LogoutOutlined style={{ fontSize: '1.2rem' }} />
                     </Button>
                   </div>
                 )}
@@ -103,32 +110,32 @@ export default function Header(props: Props) {
         <div className="header-grid">
           <ul className="header_bread-scrum-list">
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/shoes" className="header-item-link">
                 Shoes
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/accessories" className="header-item-link">
                 Accessories
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/clothes" className="header-item-link">
                 Clothes
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/houseware" className="header-item-link">
                 Houseware
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/decorations" className="header-item-link">
                 Decorations
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/funiture" className="header-item-link">
                 Furniture
               </a>
             </li>

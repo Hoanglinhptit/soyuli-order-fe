@@ -5,8 +5,13 @@ import Home from '../pages/home';
 import Shoes from '../pages/shoes';
 import Clothes from '../pages/clothes';
 import HouseWare from '../pages/houseware';
+import Login from '../layouts/account/login/Login';
 
 const SOYULI_ROUTES = [
+  {
+    path: '/auth/login',
+    element: <Login />,
+  },
   {
     path: '/products/accessories',
     element: <Accessories />,
@@ -25,15 +30,16 @@ const SOYULI_ROUTES = [
   },
   {
     path: '/products/houseware',
-    element: <HouseWare/>,
+    element: <HouseWare />,
   },
   {
-    path: '/',
-    element: <Home/>,
+    path: '/home',
+    element: <Home />,
   },
   {
     path: '/products/clothes',
     element: <Clothes />,
   },
+  
 ];
 export default SOYULI_ROUTES;
