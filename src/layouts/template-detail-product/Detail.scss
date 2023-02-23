@@ -1,0 +1,192 @@
+$basedWidth: 1200px;
+@mixin responsiveDetail($breakpoint) {
+  @if $breakpoint == desktop {
+    @media (max-width: 2100px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media (max-width: 1600px) {
+      @media (max-width: 1600px) {
+        @content;
+      }
+    }
+    @if $breakpoint == tablet {
+      @media (max-width: 767px) {
+        @content;
+      }
+    } @else if $breakpoint == mobile {
+      @media (max-width: 479px) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+.page-detail-container {
+  width: 100%;
+  .page-detail-grid {
+    @include responsiveDetail(desktop) {
+      width: 1400px;
+    }
+    @include responsiveDetail(laptop) {
+      width: $basedWidth;
+    }
+
+    @include responsiveDetail(mobile) {
+      width: 95%;
+    }
+    @include responsiveDetail(tablet) {
+      width: 90%;
+    }
+    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+  }
+}
+.page-detail-col-70 {
+  width: 80%;
+
+  .page-detail-product-garaley {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+   
+    .page-detail-big-image {
+      @include responsiveDetail(desktop) {
+        width: 400px;
+      }
+      @include responsiveDetail(laptop) {
+        width: 350px;
+      }
+  
+      @include responsiveDetail(mobile) {
+        width: 95%;
+      }
+      @include responsiveDetail(tablet) {
+        width: 90%;
+      }
+      
+      background-color: #fff;
+      border-radius: 6px;
+    }
+  }
+  .page-detail-tab{
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+.page-detail-col-30 {
+  width: 20%;
+  .wrap_modules_services-details {
+    .wrap_modules-services {
+      overflow: hidden;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #757373;
+      margin-bottom: 30px;
+      margin-top: 3px;
+      .item-service {
+        margin: 0px 15px;
+        border-bottom: solid 1px #e5e5e5;
+        .content_service {
+          position: relative;
+          padding: 20px 0px 20px 50px;
+          p {
+            font-size: 16px;
+            line-height: normal;
+            margin: 0px;
+            padding: 0px;
+            font-weight: bold;
+            color: #888;
+          }
+          span {
+            color: #707070;
+            font-family: 'Roboto', 'HelveticaNeue', 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.item-service:nth-child(1) .content_service::before {
+  background-image: url(//bizweb.dktcdn.net/100/347/923/themes/742041/assets/shiper.png?1671682934690);
+}
+.item-service:nth-child(2) .content_service::before {
+  background-image: url(//bizweb.dktcdn.net/100/347/923/themes/742041/assets/change.png?1671682934690);
+}
+.item-service:nth-child(3) .content_service::before {
+  background-image: url(https://bizweb.dktcdn.net/100/347/923/themes/742041/assets/pay.png?1671682934690);
+}
+.item-service:nth-child(4) .content_service::before {
+  background-image: url(https://bizweb.dktcdn.net/100/347/923/themes/742041/assets/phone.png?1671682934690);
+}
+.content_service::before {
+  content: '';
+  width: 35px;
+  height: 30px;
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 23px;
+}
+.product-names-details {
+  @include responsiveDetail(desktop) {
+    width: 500px;
+  }
+  @include responsiveDetail(laptop) {
+    width: 380px;
+  }
+
+  @include responsiveDetail(mobile) {
+    width: 95%;
+  }
+  @include responsiveDetail(tablet) {
+    width: 90%;
+  }
+  .title-product {
+    color: #080000;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0px;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  .product-price {
+    font-size: 30px;
+    line-height: 30px;
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .product-description {
+    font-size: 16px;
+    color: #888;
+    line-height: 22px;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 8px;
+  }
+}
+.promotion-list{
+  font-size: 14px;
+  color: #5a1c48;
+  line-height: 24px;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 8px;
+  .promotion-item{
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+.ant-carousel .slick-slide > div {
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}

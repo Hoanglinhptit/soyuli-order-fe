@@ -1,7 +1,18 @@
+import SwipperContainer from "../../layouts/swipper-demo/Swiper"
+
 
 function Clothes() {
   return (
-    <div>index</div>
+    <div>
+      <div style={{
+                width: '300px',
+                backgroundColor: '#fff',
+                padding: '20px'
+            }}>
+                 <SwipperContainer/>
+            </div>
+     
+      </div>
   )
 }
 

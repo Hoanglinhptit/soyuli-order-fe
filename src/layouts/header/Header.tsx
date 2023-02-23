@@ -4,11 +4,12 @@ import {
   SearchOutlined,
   LogoutOutlined,
 } from '@ant-design/icons';
-import { Button, AutoComplete, Input } from 'antd';
+import { useLocation, Link } from 'react-router-dom';
+import { Button, AutoComplete, Input, Breadcrumb } from 'antd';
 import './Header.scss';
 import { RootState } from '../../redux/store';
 import { useAppSelector } from '../../redux/hooks';
-import Logo from '../../assets/logo/Logo.svg';
+import Logo from '../../assets/logo/Logo.svg'
 
 // interface PropsType = {
 //   textSearch : String;
@@ -24,13 +25,40 @@ export default function Header(props: Props) {
   const { onSearch, onChange, onSeclect, value } = props;
   const isAuth = localStorage.getItem('token');
   const auth = useAppSelector((state: RootState) => state.AuthReducer);
+  const breadcrumbNameMap: Record<string, string> = {
+    '/products': 'Products',
+    '/news': 'News',
+    '/products/shoes': 'Shoes',
+    '/products/accessories': 'Accessories',
+    '/products/clothes': 'Clothes',
+    '/products/houseware': 'Houseware',
+    '/products/decorations': 'Decorations',
+    '/products/funiture': 'Funiture',
+    '/products/detail': "Detail"
+  };
+  const location = useLocation();
+  const pathSnippets = location.pathname.split('/').filter((i) => i);
+
+  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    return (
+      <Breadcrumb.Item key={url}>
+        <Link to={url}>{breadcrumbNameMap[url]}</Link>
+      </Breadcrumb.Item>
+    );
+  });
+  const breadcrumbItems = [
+    <Breadcrumb.Item key="home">
+      <Link to="/">Home</Link>
+    </Breadcrumb.Item>,
+  ].concat(extraBreadcrumbItems);
 
   return (
     <div className="header-container">
       <div className="header-grid">
         <nav className="header_navbar--container">
           <div className="header-logo">
-            <a href="/home" className="header-item-link">
+            <a href="/" className="header-item-link">
               <img src={Logo} alt="Logo" className="header-logo-img" />
             </a>
           </div>
@@ -88,7 +116,9 @@ export default function Header(props: Props) {
                   </ul>
                 ) : (
                   <div className="user-wrapper">
-                    <span className="header-navbar--user">Hi,{auth.data.name}!</span>
+                    <span className="header-navbar--user">
+                      Hi,{auth.data.name}!
+                    </span>
                     <Button
                       style={{ border: 'none' }}
                       onClick={() => {
@@ -104,8 +134,8 @@ export default function Header(props: Props) {
             </ul>
           </div>
         </nav>
+        
       </div>
-
       <div className="header_bread-scrum">
         <div className="header-grid">
           <ul className="header_bread-scrum-list">
@@ -142,6 +172,10 @@ export default function Header(props: Props) {
           </ul>
         </div>
       </div>
+
+     
+      <div className='header-grid-bread'> <Breadcrumb style={{fontSize:'1rem', marginTop:'16px'}}>{breadcrumbItems}</Breadcrumb></div>
+     
     </div>
   );
 }
