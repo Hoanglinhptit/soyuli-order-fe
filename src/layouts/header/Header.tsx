@@ -174,7 +174,7 @@ export default function Header(props: Props) {
       </div>
 
      
-      <div className='header-grid'> <Breadcrumb style={{fontSize:'1rem', marginTop:'16px', }}>{breadcrumbItems}</Breadcrumb></div>
+      <div className='header-grid-bread'> <Breadcrumb style={{fontSize:'1rem', marginTop:'16px'}}>{breadcrumbItems}</Breadcrumb></div>
      
     </div>
   );

@@ -28,7 +28,6 @@ $link-color: 102, 153, 255;
 }
 .header-container {
   height: $headerHeight;
-  box-shadow: 0 0 10px #ccc;
   width: 100%;
   margin-bottom: 50px;
   .header_bread-scrum {
@@ -160,3 +159,23 @@ $link-color: 102, 153, 255;
 .header-item-link:hover{
   color: #E7B5A3;
 }
+.header-grid-bread {
+  @include responsive(desktop) {
+    width: 1320px;
+  }
+  @include responsive(laptop) {
+    width: 1000px;
+  }
+
+  @include responsive(mobile) {
+    width: 95%;
+  }
+  @include responsive(tablet) {
+    width: 90%;
+  }
+
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
