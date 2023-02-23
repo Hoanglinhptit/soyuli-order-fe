@@ -1,4 +1,4 @@
-$headerHeight: 120px;
+$headerHeight: 130px;
 $basedWidth: 1200px;
 $link-color: 102, 153, 255;
 @mixin responsive($breakpoint) {
@@ -30,6 +30,7 @@ $link-color: 102, 153, 255;
   height: $headerHeight;
   box-shadow: 0 0 10px #ccc;
   width: 100%;
+  margin-bottom: 50px;
   .header_bread-scrum {
     background-color: #d6d3cd;
     width: 100%;

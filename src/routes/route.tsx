@@ -6,11 +6,16 @@ import Shoes from '../pages/shoes';
 import Clothes from '../pages/clothes';
 import HouseWare from '../pages/houseware';
 import Login from '../layouts/account/login/Login';
+import Detail from '../layouts/template-detail-product'
 
 const SOYULI_ROUTES = [
   {
     path: '/auth/login',
     element: <Login />,
+  },
+  {
+    path: '/products/detail',
+    element: <Detail/>,
   },
   {
     path: '/products/accessories',
@@ -33,7 +38,7 @@ const SOYULI_ROUTES = [
     element: <HouseWare />,
   },
   {
-    path: '/home',
+    path: '/',
     element: <Home />,
   },
   {
