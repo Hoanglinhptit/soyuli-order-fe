@@ -1,23 +1,58 @@
 import { useState } from 'react';
-import { ShoppingOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, AutoComplete, Input } from 'antd';
+import {
+  ShoppingOutlined,
+  SearchOutlined,
+  LogoutOutlined,
+} from '@ant-design/icons';
+import { useLocation, Link } from 'react-router-dom';
+import { Button, AutoComplete, Input, Breadcrumb } from 'antd';
 import './Header.scss';
-import Logo from '../../assets/logo/Logo.svg';
+import { RootState } from '../../redux/store';
+import { useAppSelector } from '../../redux/hooks';
+import Logo from '../../assets/logo/Logo.svg'
 
 // interface PropsType = {
 //   textSearch : String;
 //   handleSearch :
 // }
 interface Props {
-  value : string;
-  onSearch: () => void;
+  value: string;
+  onSearch: (query: string) => void;
   onSeclect: (query: string) => void;
   onChange: (query: string) => void;
 }
-export default function Header(props:Props) {
-  const {onSearch,onChange,onSeclect,value}= props;
-  const [isLogin, setIsLogin] = useState<boolean>(false);
- 
+export default function Header(props: Props) {
+  const { onSearch, onChange, onSeclect, value } = props;
+  const isAuth = localStorage.getItem('token');
+  const auth = useAppSelector((state: RootState) => state.AuthReducer);
+  const breadcrumbNameMap: Record<string, string> = {
+    '/products': 'Products',
+    '/news': 'News',
+    '/products/shoes': 'Shoes',
+    '/products/accessories': 'Accessories',
+    '/products/clothes': 'Clothes',
+    '/products/houseware': 'Houseware',
+    '/products/decorations': 'Decorations',
+    '/products/funiture': 'Funiture',
+    '/products/detail': "Detail"
+  };
+  const location = useLocation();
+  const pathSnippets = location.pathname.split('/').filter((i) => i);
+
+  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    return (
+      <Breadcrumb.Item key={url}>
+        <Link to={url}>{breadcrumbNameMap[url]}</Link>
+      </Breadcrumb.Item>
+    );
+  });
+  const breadcrumbItems = [
+    <Breadcrumb.Item key="home">
+      <Link to="/">Home</Link>
+    </Breadcrumb.Item>,
+  ].concat(extraBreadcrumbItems);
+
   return (
     <div className="header-container">
       <div className="header-grid">
@@ -35,11 +70,10 @@ export default function Header(props:Props) {
                 onSearch={onSearch}
                 onSelect={onSeclect}
                 onChange={onChange}
-                
               >
                 <Input className="search-input" placeholder="Searching" />
               </AutoComplete>
-              <Button className="search-button" onClick={()=>onSearch}>
+              <Button className="search-button" onClick={() => onSearch}>
                 <SearchOutlined />
               </Button>
             </div>
@@ -47,8 +81,8 @@ export default function Header(props:Props) {
           <div className="header-navbar_list-wrapper">
             <ul className="header-navbar-list">
               <li className="header-navbar-item">
-                <a href="/" className="header-item-link">
-                  Notification
+                <a href="/news" className="header-item-link">
+                  News
                 </a>
               </li>
               <li className="header-navbar-item">
@@ -67,10 +101,10 @@ export default function Header(props:Props) {
                 </a>
               </li>
               <li className="header-navbar-item-authen">
-                {!isLogin ? (
+                {!isAuth ? (
                   <ul className="header-navbar--authen">
                     <li>
-                      <a href="/" className="header-item-link">
+                      <a href="/auth/login" className="header-item-link">
                         Login
                       </a>
                     </li>
@@ -81,52 +115,67 @@ export default function Header(props:Props) {
                     </li>
                   </ul>
                 ) : (
-                  <span className="header-navbar--user">
-                    Xin chào Lê Hoàng Linh !
-                  </span>
+                  <div className="user-wrapper">
+                    <span className="header-navbar--user">
+                      Hi,{auth.data.name}!
+                    </span>
+                    <Button
+                      style={{ border: 'none' }}
+                      onClick={() => {
+                        localStorage.removeItem('token');
+                        window.location.reload();
+                      }}
+                    >
+                      <LogoutOutlined style={{ fontSize: '1.2rem' }} />
+                    </Button>
+                  </div>
                 )}
               </li>
             </ul>
           </div>
         </nav>
+        
       </div>
-
       <div className="header_bread-scrum">
         <div className="header-grid">
           <ul className="header_bread-scrum-list">
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/shoes" className="header-item-link">
                 Shoes
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/accessories" className="header-item-link">
                 Accessories
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/clothes" className="header-item-link">
                 Clothes
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/houseware" className="header-item-link">
                 Houseware
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/decorations" className="header-item-link">
                 Decorations
               </a>
             </li>
             <li className="header_bread-scrum-item">
-              <a href="/" className="header-item-link">
+              <a href="/products/funiture" className="header-item-link">
                 Furniture
               </a>
             </li>
           </ul>
         </div>
       </div>
+
+     
+      <div className='header-grid-bread'> <Breadcrumb style={{fontSize:'1rem', marginTop:'16px'}}>{breadcrumbItems}</Breadcrumb></div>
+     
     </div>
   );
 }

@@ -23,8 +23,13 @@ module.exports = {
   'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
+    "react/button-has-type":0,
     "prettier/prettier": 0,
-    "@typescript-eslint/no-shadow": "off"
-
+    "@typescript-eslint/no-shadow": "off",
+    "@typescript-eslint/no-redeclare": "off",
+    "default-param-last": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "no-param-reassign": [2, { "props": false }],
+    "jsx-a11y/click-events-have-key-events": 0
   },
 };
