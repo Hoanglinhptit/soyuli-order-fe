@@ -27,13 +27,6 @@ export default function CarouselWrapper() {
   return (
     <div style={{ height: '400px' }}>
       <Style autoplay className='carousel-container'>
-        {/* {MockVal.map((e) => {
-          return (
-            <div key={e.id}>
-              <h3 style={contentStyle}>{e.content}</h3>
-            </div>
-          );
-        })} */}
         <img src={furniture} />
         <img src={furniture} />
         <img src={furniture} />

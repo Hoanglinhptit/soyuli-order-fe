@@ -5,7 +5,7 @@ import './Footer.scss';
 
 export default function Footer() {
   return <div className='footer'>
-    <div className='wapper'>
+    <div className='footer-wapper'>
       <h1 className='footer-title'>Soyuli.Access the Now.</h1>
       <div className='footer-shoe'>
         <Row>
