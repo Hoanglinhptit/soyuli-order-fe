@@ -1,42 +1,37 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable jsx-a11y/alt-text */
 import { Carousel } from 'antd';
+import styled from 'styled-components';
+// import furniture from '../../assets/carousel/furniture.png'
+import furniture from '../../assets/carousel/furniture.svg';
 
-const contentStyle: React.CSSProperties = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
-const MockVal = [
-  {
-    content: '',
-    id: 1,
-  },
-  {
-    content: '',
-    id: 2,
-  },
-  {
-    content: '',
-    id: 3,
-  },
-  {
-    content: '',
-    id: 4,
-  },
-];
+const Style = styled(Carousel)`
+ 
+   > .slick-dots li button {
+    width: 20px;
+    height: 10px;
+    background: #9B837C;
+  
+    
+  }
+  > .slick-dots li.slick-active button {
+    width: 20px;
+    height: 10px;
+    background: #472B22;
+    
+  }
+`;
+
 export default function CarouselWrapper() {
   return (
-    <div>
-      <Carousel autoplay>
-        {MockVal.map((e) => {
-          return (
-            <div key={e.id}>
-              <h3 style={contentStyle}>{e.content}</h3>
-            </div>
-          );
-        })}
-      </Carousel>
+    <div style={{ height: '400px' }}>
+      <Style autoplay className='carousel-container'>
+        <img src={furniture} />
+        <img src={furniture} />
+        <img src={furniture} />
+        <img src={furniture} />
+      </Style>
     </div>
   );
 }

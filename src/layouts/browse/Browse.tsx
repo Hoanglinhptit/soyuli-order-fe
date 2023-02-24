@@ -3,8 +3,8 @@ import './Browse.scss';
 import { DownOutlined } from '@ant-design/icons';
 
 export default function Browse() {
-  return <div className='wapper'>
-    <div className='title'>
+  return <div className='browse'>
+    <div className='browse-wapper'>
         <h1 className='browse-title'>Sneakers</h1>
         <span className='browse-about'>Every sneaker you want is always available and verified by Soyuli. Elevate your life and style with Soyuli, here we sell all kinds of accessories, shoes, clothes, housewares, furniture, decorations and more features</span>
     </div>
@@ -18,7 +18,7 @@ export default function Browse() {
         </div>
         <div className='product-list'>
             <div className='product-tab'>
-                <div>Home / Sneakers</div>
+                <div></div>
                 <div className='product-btn'>Sort By: Featured <DownOutlined /></div>
             </div>
             <div className='product-shoes'>

@@ -1,0 +1,12 @@
+.carousel-container{
+    > .slick-dots li button {
+        width: 19px;
+        height: 10px;
+        
+      }
+      > .slick-dots li.slick-active button {
+        width: 19px;
+        height: 10px;
+        background: black;
+      }
+}

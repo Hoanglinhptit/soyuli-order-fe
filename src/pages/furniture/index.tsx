@@ -1,8 +1,9 @@
 import React from 'react'
+import CarouselWrapper from '../../layouts/carousel/Carousel'
 
 function Funiture() {
   return (
-    <div>index</div>
+    <div><CarouselWrapper/></div>
   )
 }
 

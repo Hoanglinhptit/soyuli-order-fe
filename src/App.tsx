@@ -58,7 +58,7 @@ export default function App() {
         </Routes>
         {/* <Browse/> */}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
