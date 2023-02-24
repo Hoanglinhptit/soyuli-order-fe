@@ -7,8 +7,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Image, Carousel,Tabs, Table, Collapse,  } from 'antd';
-import { EyeOutlined , TagOutlined} from '@ant-design/icons'; 
+import { Image, Carousel, Tabs, Table, Collapse, Select } from 'antd';
+import { EyeOutlined, TagOutlined } from '@ant-design/icons';
 import { useAppDispatch } from '../../redux/hooks';
 import { getProductRequest } from '../../redux/actions';
 import SwipperContainer from '../swipper-demo/Swiper';
@@ -40,15 +40,15 @@ function DetailContainer() {
   const DataTable = [
     {
       rowName: 'Thương hiệu',
-      data: 'cai gi gi day',
+      data: 'Đồ decor ',
     },
     {
       rowName: 'Xuất xứ thương hiệu',
-      data: 'Mỹ',
+      data: 'Trung Quốc',
     },
     {
       rowName: 'Sản xuất tại',
-      data: 'Việt Nam',
+      data: 'Trung Quốc',
     },
     {
       rowName: 'SKU',
@@ -56,7 +56,7 @@ function DetailContainer() {
     },
     {
       rowName: 'Chất liệu',
-      data: 'Vải Canvas',
+      data: 'Cotton',
     },
     {
       rowName: 'Chế độ bảo hành',
@@ -85,16 +85,28 @@ function DetailContainer() {
       data: (
         <div>
           <ul>
-            <li>Giày</li>
-            <li>Hộp giày</li>
-            <li>Túi đựng </li>
-            <li>Phiếu Bảo Hành</li>
+            <li>Đồ order</li>
+            <li>Hộp nguyên bản của mẫu order</li>
+            <li>Hộp chống xốc gắn phiếu thông quan </li>
+            <li>Phiếu bảo hành nguyên mẫu của hãng</li>
+            <li>Phiếu bảo hành của hãng</li>
+            <li>Tem chứng nhận tiêu chuẩn của hàng nội địa </li>
           </ul>
         </div>
       ),
     },
   ];
-  function keyCallBack(key: any){
+  const columns = [
+    {
+      title: 'Các thông tin',
+      dataIndex: 'rowName',
+    },
+    {
+      title: 'Chi tiết',
+      dataIndex: 'data',
+    },
+  ];
+  function keyCallBack(key: any) {
     console.log(key);
   }
   return (
@@ -102,53 +114,124 @@ function DetailContainer() {
       <div className="page-detail-grid">
         <div className="page-detail-col-70">
           <div className="page-detail-product-garaley">
-            <div className="page-detail-big-image" >
-              
-              <SwipperContainer/>
+            <div className="page-detail-big-image">
+              <SwipperContainer />
             </div>
             <div className="page-detail-product">
               <div className="product-names-details">
                 <h1 className="title-product">
-                  Giày Converse Chuck Taylor All Star Gradient Color Blocked -
-                  A00543C
+                  Đệm dựa lưng My Baby Bear order nguyên chiếc 65*45cm
                 </h1>
                 <span className="product-price">$1000</span>
                 <div className="product-description ">
-                  THÔNG TIN SẢN PHẨM Thương hiệu Converse Xuất xứ thương hiệu Mỹ
-                  Sản xuất tại Việt Nam/ Ấn Độ/ Trung Quốc (tùy từng lô hàng)
-                  SKU A00543C Model Converse Chuck Taylor All Star Chất liệu Vải
-                  Canvas Hướng dẫn bảo quản Tránh mang sản phẩm khi trời mưa
-                  hoặc thời tiết xấu để chúng...
+                  Hottrend cập bến khuấy đảo thị trường gấu bông với hình ghế
+                  tựa bông siêu ấm, chất lông xù mềm mại, không rụng lông, an
+                  toàn với làn da nhạy cảm của các bé. Hướng dẫn bảo quản: Tránh
+                  dùng sản phẩm khi trời ẩm hoặc đặt lên nền nhà ẩm ...
                 </div>
-                <ul className='promotion-list'>
-                  <li className='promotion-item'><TagOutlined /><span>Đăng ký để nhận thông báo từ bản tin của shop</span></li>
-                  <li className='promotion-item'><TagOutlined /><span>Luôn bật thông báo để nhận được tin mới nhất</span></li>
-                  <li className='promotion-item'><TagOutlined /><span>Shop sẽ thông báo các khung giờ sale</span></li>
-                  <li className='promotion-item'><TagOutlined /><span>Đối với các hóa đơn từ 300$ sẽ đc freeship kèm voucher giảm giá 10%</span></li>
-                  <li className='promotion-item'><TagOutlined /><span>Đối với các hóa đơn từ 1000$ sẽ đc freeship kèm voucher giảm giá phí cân nặng</span></li>
+                <ul className="promotion-list">
+                  <li className="promotion-item">
+                    <TagOutlined />
+                    <span>
+                      Đăng ký để nhận thông báo mới nhất từ bản tin của shop
+                    </span>
+                  </li>
+                  {/* <li className="promotion-item">
+                    <TagOutlined />
+                    <span>Luôn bật thông báo để nhận được tin mới nhất</span>
+                  </li> */}
+                  {/* <li className="promotion-item">
+                    <TagOutlined />
+                    <span>Shop sẽ thông báo các khung giờ sale</span>
+                  </li> */}
+                  <li className="promotion-item">
+                    <TagOutlined />
+                    <span>
+                      Đối với các hóa đơn từ 300$ sẽ đc freeship kèm voucher
+                      giảm giá 10%
+                    </span>
+                  </li>
+                  <li className="promotion-item">
+                    <TagOutlined />
+                    <span>
+                      Đối với các hóa đơn từ 1000$ sẽ đc freeship kèm voucher
+                      giảm giá phí cân nặng
+                    </span>
+                  </li>
+                  <li className="promotion-item">
+                    <TagOutlined />
+                    <span>Hỗ trợ phí ship COD</span>
+                  </li>
                 </ul>
-                <div className='product-size-wraper'></div>
-                <div className='product-quantity-wrapper'></div>
+                <div className="product-selection-wraper">
+                  <span>Chọn mẫu</span>
+                  <Select
+                    showSearch
+                    className='product-selection'
+                    placeholder="Chọn mẫu"
+                    optionFilterProp="children"
+                    filterOption={(input, option) =>
+                      (option?.label ?? '').includes(input)
+                    }
+                    filterSort={(optionA, optionB) =>
+                      (optionA?.label ?? '')
+                        .toLowerCase()
+                        .localeCompare((optionB?.label ?? '').toLowerCase())
+                    }
+                    options={[
+                      {
+                        value: '1',
+                        label: 'Gấu nâu đậm',
+                      },
+                      {
+                        value: '2',
+                        label: 'Vịt vàng',
+                      },
+                      {
+                        value: '3',
+                        label: 'Gấu loster hồng',
+                      },
+                      {
+                        value: '4',
+                        label: 'Gấu nâu nhạt ',
+                      },
+                      
+                    ]}
+                  />
+                </div>
+                <div className="product-quantity-wrapper"></div>
+                <div className="product-button-handle">
+                  <button>Oder</button>
+                  <button>Add to card</button>
+                </div>
               </div>
             </div>
           </div>
           <div className="page-detail-tab">
-          <Tabs defaultActiveKey="1" onChange={keyCallBack} size="large" >
-          <TabPane tab="Mô Tả Sản Phẩm" key="1" className='tab-header-item' >
-            <Collapse accordion  >
-              <Panel header="Thông tin chi tiết sản phẩm " key="1">
-                {/* <Table columns={columns} dataSource={columnsData} />; */}
-            
-              </Panel>
-            </Collapse>
-          </TabPane>
-          <TabPane tab="Hướng Dẫn Chọn Size " key="2" className='tab-header-item'>
-            
-          </TabPane>
-          <TabPane tab="Gửi đánh giá cho chúng tôi " key="3" className='tab-header-item'>
-            Content of Tab Pane 3
-          </TabPane>
-        </Tabs>
+            <Tabs defaultActiveKey="1" onChange={keyCallBack} size="large">
+              <TabPane
+                tab="Mô Tả Sản Phẩm Chi tiết"
+                key="1"
+                className="tab-header-item"
+              >
+                {/* <Panel header="Thông tin chi tiết sản phẩm " key="1"></Panel> */}
+                {/* <Collapse accordion> */}
+                <Table columns={columns} dataSource={DataTable} />;
+                {/* </Collapse> */}
+              </TabPane>
+              <TabPane
+                tab="Các sản phẩm liên quan"
+                key="2"
+                className="tab-header-item"
+              ></TabPane>
+              <TabPane
+                tab="Gửi đánh giá cho chúng tôi "
+                key="3"
+                className="tab-header-item"
+              >
+                Content of Tab Pane 3
+              </TabPane>
+            </Tabs>
           </div>
         </div>
         <div className="page-detail-col-30">
