@@ -1,9 +1,9 @@
 import React from 'react'
-import Browse from '../../layouts/browse/Browse'
+import Browse from '../shoes/Shoes'
 
 function Home() {
   return (
-    <div><Browse/></div>
+    <div>Chưa có nha</div>
   )
 }
 

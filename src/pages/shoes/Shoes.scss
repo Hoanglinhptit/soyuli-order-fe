@@ -1,19 +1,19 @@
-.browse {
+.shoes {
     
     margin: 20px 135px 0;
 }
 
-.browse-wapper {
+.shoes-wapper {
     background-color: var(--primary);
     padding: 20px;
 }
 
-.browse-title {
+.shoes-title {
     font-size: 2.4rem;
     padding-bottom: 20px;
 }
 
-.browse-about {
+.shoes-about {
     font-size: 1.1rem;
 }
 
@@ -32,6 +32,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     padding-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .product-btn {
@@ -80,4 +81,17 @@
 .shoe-price {
     font-size: 1.7rem;
     font-weight: 700;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #000;
+    border-color: #000;
+    
+}
+
+.shoes-size {
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #595454;
 }
