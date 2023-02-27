@@ -56,7 +56,7 @@ export default function App() {
             <Route path="/news" element={<Payment />} />
           </Route>
         </Routes>
-        {/* <Browse/> */}
+        
       </div>
       <Footer />
     </div>
