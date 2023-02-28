@@ -65,7 +65,7 @@ export default function Login() {
               <DebounceInput
               className="password"
               type={show === true ? 'text' : 'password'}
-              placeholder="****"
+              placeholder="Password"
               debounceTimeout={5000}
               onChange={(e) => {
                 setAccount({
