@@ -49,7 +49,6 @@ export default function Shoes() {
         </div>
         <div className='product-list'>
             <div className='product-tab'>
-                <div></div>
                 <div className='product-btn'>Sort By: Featured <DownOutlined /></div>
             </div>
             <div className='product-shoes'>
