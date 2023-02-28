@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import Header from './layouts/header/Header';
 import Footer from './layouts/footer/Footer';
-import Browse from './layouts/browse/Browse';
 import SOYULI_ROUTES from './routes/route';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Payment from './pages/payment';
@@ -56,7 +55,6 @@ export default function App() {
             <Route path="/news" element={<Payment />} />
           </Route>
         </Routes>
-        
       </div>
       <Footer />
     </div>

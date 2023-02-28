@@ -1,20 +1,51 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './Browse.scss';
+import './Shoes.scss';
 import { DownOutlined } from '@ant-design/icons';
+import { Checkbox } from 'antd';
 
-export default function Browse() {
-  return <div className='browse'>
-    <div className='browse-wapper'>
-        <h1 className='browse-title'>Sneakers</h1>
-        <span className='browse-about'>Every sneaker you want is always available and verified by Soyuli. Elevate your life and style with Soyuli, here we sell all kinds of accessories, shoes, clothes, housewares, furniture, decorations and more features</span>
+
+export default function Shoes() {
+    // const onChange = (e) => {
+    //     console.log(`checked! = ${e.target.checked}`);
+    // }
+    
+    return <div className='shoes'>
+    <div className='shoes-wapper'>
+        <h1 className='shoes-title'>Sneakers</h1>
+        <span className='shoes-about'>Buy and Sell Shoes on StockX. Every item is StockX Verified.</span>
     </div>
     <div className='product'>
         <div className='product-navs'>
-            <a className='nav'>SNEAKERS</a>
-            <a className='nav'>SHOES</a>
-            <a className='nav'>APPAREL</a>
-            <a className='nav'>SNEAKERS</a>
-            <a className='nav'>SNEAKERS</a>
+            <a className='nav'>Sneakers</a>
+            <a className='nav'>Shoes</a>
+            <a className='nav'>Apparel</a>
+            <a className='nav'>Electronics</a>
+            <a className='nav'>Trading Cards</a>
+            <a className='nav'>Collectibles</a>
+            <a className='nav'>Accessories</a>
+            <br/>
+            <h1 className='nav'>Size types</h1>
+            <Checkbox>Men</Checkbox><span/> 
+            <Checkbox>Women</Checkbox><span/> 
+            <Checkbox>Child</Checkbox><span/> 
+            <Checkbox>Preschool</Checkbox><span/> 
+            <Checkbox>Toddler</Checkbox><span/> 
+            <Checkbox>Infant</Checkbox><span/> 
+            <br/>
+            <h1 className='nav'>Sizes</h1>
+            <div>
+                <button className='shoes-size'>1</button>
+                <button className='shoes-size'>1.5</button>
+                <button className='shoes-size'>2</button>
+                <button className='shoes-size'>2.5</button>
+                <button className='shoes-size'>3</button>
+                <button className='shoes-size'>3.5</button>
+                <button className='shoes-size'>4</button>
+                <button className='shoes-size'>4.5</button>
+                <button className='shoes-size'>5</button>
+                
+            </div>
+            
         </div>
         <div className='product-list'>
             <div className='product-tab'>
