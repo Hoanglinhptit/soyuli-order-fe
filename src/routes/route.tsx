@@ -2,7 +2,7 @@ import Accessories from '../pages/accessories';
 import Decorations from '../pages/decorations';
 import Funiture from '../pages/furniture';
 import Home from '../pages/home';
-import Shoes from '../pages/shoes';
+import Shoes from '../pages/shoes/Shoes';
 import Clothes from '../pages/clothes';
 import HouseWare from '../pages/houseware';
 import Login from '../layouts/account/login/Login';

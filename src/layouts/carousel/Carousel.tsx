@@ -3,8 +3,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Carousel } from 'antd';
 import styled from 'styled-components';
-// import furniture from '../../assets/carousel/furniture.png'
 import furniture from '../../assets/carousel/furniture.svg';
+import acessories from '../../assets/carousel/acessories.svg'
+import clothes from '../../assets/carousel/clothes.svg'
+import houseware from '../../assets/carousel/houseware.svg'
+import shoes from  '../../assets/carousel/shoes.svg'
 
 const Style = styled(Carousel)`
  
@@ -25,12 +28,13 @@ const Style = styled(Carousel)`
 
 export default function CarouselWrapper() {
   return (
-    <div style={{ height: '400px' }}>
+    <div >
       <Style autoplay className='carousel-container'>
         <img src={furniture} />
-        <img src={furniture} />
-        <img src={furniture} />
-        <img src={furniture} />
+        <img src={acessories} />
+        <img src={clothes} />
+        <img src={houseware} />
+        <img src={shoes} />
       </Style>
     </div>
   );
