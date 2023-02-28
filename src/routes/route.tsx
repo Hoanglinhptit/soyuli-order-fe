@@ -7,11 +7,16 @@ import Clothes from '../pages/clothes';
 import HouseWare from '../pages/houseware';
 import Login from '../layouts/account/login/Login';
 import Detail from '../layouts/template-detail-product'
+import Register from '../layouts/account/register/Register';
 
 const SOYULI_ROUTES = [
   {
     path: '/auth/login',
     element: <Login />,
+  },
+  {
+    path: '/auth/register',
+    element: <Register />,
   },
   {
     path: '/products/detail',

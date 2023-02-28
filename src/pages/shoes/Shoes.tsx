@@ -43,9 +43,18 @@ export default function Shoes() {
                 <button className='shoes-size'>4</button>
                 <button className='shoes-size'>4.5</button>
                 <button className='shoes-size'>5</button>
-                
+                <button className='shoes-size'>5.5</button>
+                <button className='shoes-size'>6</button>
+                <button className='shoes-size'>6.5</button>           
             </div>
-            
+            <br/>
+            <h1 className='nav'>Prices</h1>
+            <Checkbox>Under $100</Checkbox><span/> 
+            <Checkbox>$100 - $250</Checkbox><span/> 
+            <Checkbox>$250 - $500</Checkbox><span/> 
+            <Checkbox>$500 - $1000</Checkbox><span/> 
+            <Checkbox>$1000 - $1500</Checkbox><span/> 
+            <Checkbox>$1500 +</Checkbox><span/> 
         </div>
         <div className='product-list'>
             <div className='product-tab'>

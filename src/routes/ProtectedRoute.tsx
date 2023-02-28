@@ -12,6 +12,7 @@ const ProtectedRoute = (props: any) => {
     return <Navigate to="/auth/login" />;
   }
 
+
   return <Outlet/>;
 };
 
