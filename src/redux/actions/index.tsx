@@ -25,3 +25,16 @@ export const getDetailUserRequest = createAction(constants.GET_DETAIL_USER_REQUE
 export const getDetailUserSuccess = createAction(constants.GET_DETAIL_USER_SUCCESS)
 export const getDetailUserFailure = createAction(constants.GET_DETAIL_USER_FAILURE)
 
+export const cardAddProductRequest = createAction(constants.CART_ADD_PRODUCT_REQUEST)
+export const cardAddProductSuccess = createAction(constants.CART_ADD_PRODUCT_SUCCESS)
+export const cardAddProductFailure = createAction(constants.CART_ADD_PRODUCT_FAILURE)
+
+export const getCardProductRequest = createAction(constants.CART_GET_PRODUCT_REQUEST)
+export const getCardProductSuccess = createAction(constants.CART_GET_PRODUCT_SUCCESS)
+export const getCardProductFailure = createAction(constants.CART_GET_PRODUCT_FAILURE)
+
+export const cardDeleteProductRequest = createAction(constants.CART_DELETE_PRODUCT_REQUEST)
+export const cardDeleteProductSuccess = createAction(constants.CART_DELETE_PRODUCT_SUCCESS)
+export const cardDeleteProductFailure = createAction(constants.CART_DELETE_PRODUCT_FAILURE)
+
+

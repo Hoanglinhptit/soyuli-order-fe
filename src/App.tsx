@@ -9,6 +9,7 @@ import SOYULI_ROUTES from './routes/route';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Payment from './pages/payment';
 import News from './pages/news';
+import ShoppingCard from './pages/shopping-card'
 
 export default function App() {
   const [cond, setCond] = useState<boolean>(
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/" element={<ProtectedRoute />}>
             <Route path="/payment" element={<News />} />
             <Route path="/news" element={<Payment />} />
+            <Route path="/shopping-card" element={<ShoppingCard />} />
           </Route>
         </Routes>
       </div>
