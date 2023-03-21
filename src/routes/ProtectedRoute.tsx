@@ -11,7 +11,7 @@ const ProtectedRoute = (props: any) => {
   if (!isAuthenticated) {
     return <Navigate to="/auth/login" />;
   }
-
+  
 
   return <Outlet/>;
 };

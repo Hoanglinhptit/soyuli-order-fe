@@ -18,7 +18,7 @@ export default function App() {
   const location = useLocation();
   useEffect(() => {
     const cond =
-      location.pathname === '/auth/login' || location.pathname === '/register';
+      location.pathname === '/auth/login' || location.pathname === '/auth/register';
     cond ? setCond(true) : setCond(false);
   }, [location]);
   const [value, setValue] = useState<string>('');
