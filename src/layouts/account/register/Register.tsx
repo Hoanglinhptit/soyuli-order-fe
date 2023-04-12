@@ -1,8 +1,8 @@
 import './Register.scss';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { DebounceInput } from 'react-debounce-input';
-export default function Register() {
 
+export default function Register() {
+    
     return (
         <div className="wapper">
       <div className="wapper-child">
@@ -13,17 +13,23 @@ export default function Register() {
               <button className="user">
                 <UserOutlined />
               </button>
-              <input className="email"/>
+              <input className="email" placeholder='Email' type="email"/>
             </div>
             <div className="contain">
               <button className="lock">
                 <LockOutlined />
               </button>
-              <input className="password"/>
+              <input className="password" placeholder='Mật khẩu' type="password"/>
+            </div>
+            <div className="contain">
+              <button className="lock">
+                <LockOutlined />
+              </button>
+              <input className="password" placeholder='Nhập lại mật khẩu' type="password"/>
             </div>
             <span className="forgot-password">Quên mật khẩu?</span>
             <div className="form-footer">
-              <a className="form-btn">Tạo tài khoản mới</a>
+              <button className="form-btn" >Đăng Ký</button>
               <a className="wrap">
                 <button className="form-btn">
                   Đăng nhập
