@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { useNavigate, NavigateFunction } from 'react-router-dom';
+import { useNavigate, NavigateFunction, Link } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
@@ -49,6 +49,7 @@ export default function Login() {
               <DebounceInput
             debounceTimeout={5000}
             className="email"
+            type="email"
             placeholder="Email"
             onChange={(e) => {
               setAccount({
@@ -62,10 +63,10 @@ export default function Login() {
               <button className="lock">
                 <LockOutlined />
               </button>
-              <DebounceInput
+              <DebounceInput 
               className="password"
-              type={show === true ? 'text' : 'password'}
-              placeholder="****"
+              type="password"
+              placeholder="Mật khẩu"
               debounceTimeout={5000}
               onChange={(e) => {
                 setAccount({
@@ -77,7 +78,7 @@ export default function Login() {
             </div>
             <span className="forgot-password">Quên mật khẩu?</span>
             <div className="form-footer">
-              <a className="form-btn">Tạo tài khoản mới</a>
+              <Link className="form-btn" to="/auth/register">Tạo tài khoản mới</Link>
               <a className="wrap">
                 <button
                   className="form-btn"
