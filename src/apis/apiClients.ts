@@ -11,6 +11,7 @@ import * as constanst from '../constants'
  const deleteCartRequest = (payload:Record<string, any>) => ApiClient.delete(`cart?id=${payload.id}`, payload)
  const getCartProductRequest = (payload:Record<string, any>) => ApiClient.post(`/productCart`, payload)
 
+ const getImgMediaRequest = (payload:Record<string, any>) => ApiClient.get(`/imageMedia?keySearch=${payload.keySearch || ""}&&limit=${constanst.LIMIT}&&pageIndex=${payload.pageIndex}`, payload)
 
- export {loginRequest,getProductRequest,getDetailProductRequest, addCartRequest, getCartRequest, getCartProductRequest, deleteCartRequest} 
+ export {loginRequest,getProductRequest,getDetailProductRequest, addCartRequest, getCartRequest, getCartProductRequest, deleteCartRequest,getImgMediaRequest} 
  

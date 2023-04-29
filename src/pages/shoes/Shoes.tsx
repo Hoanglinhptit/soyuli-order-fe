@@ -1,13 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect, useState } from 'react';
 import './Shoes.scss';
 import { DownOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getProductRequest } from '../../redux/actions';
+import { RootState } from '../../redux/store';
 
 
 export default function Shoes() {
     // const onChange = (e) => {
     //     console.log(`checked! = ${e.target.checked}`);
     // }
+    const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(getProductRequest({ pageIndex: 1, limit: 10, type: 'home' }))
+    }, [])
+    const listProducts = useAppSelector((state: RootState) => state.ProductReducer);
+    console.log("Products", listProducts);
     
     return <div className='shoes'>
     <div className='shoes-wapper'>

@@ -10,11 +10,9 @@ interface LoginPayload {
   type: string;
 }
 function* loginSaga(action: LoginPayload): any {
-    console.log("saga working")
   try {
     const res = yield callAPI.loginRequest(action.payload);
     if (res) {
-        console.log("res" , res.data.data)
       yield put(actions.loginSuccess(res.data.data));
       yield localStorage.setItem('token', res.data.data.token);
     }

@@ -17,6 +17,8 @@ const DEFAULT_STATE: State = {
 export default (state: State = DEFAULT_STATE, action: any): State => {
   switch (action.type) {
     case actions.LOGIN_REQUEST:
+      console.log("payload");
+      
       return {
         ...state,
         isLoading: true,

@@ -25,6 +25,8 @@ export default function Header(props: Props) {
   const { onSearch, onChange, onSeclect, value } = props;
   const isAuth = localStorage.getItem('token');
   const auth = useAppSelector((state: RootState) => state.AuthReducer);
+  console.log("auth????", auth);
+  
   const breadcrumbNameMap: Record<string, string> = {
     '/products': 'Products',
     '/news': 'News',
@@ -117,7 +119,7 @@ export default function Header(props: Props) {
                 ) : (
                   <div className="user-wrapper">
                     <span className="header-navbar--user">
-                      Hi,{auth.data.name}!
+                      Hi,!
                     </span>
                     <Button
                       style={{ border: 'none' }}

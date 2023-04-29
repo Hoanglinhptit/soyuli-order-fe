@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prefer-destructuring */
@@ -13,6 +14,8 @@ import { useAppDispatch } from '../../redux/hooks';
 import { getProductRequest } from '../../redux/actions';
 import SwipperContainer from '../swipper-demo/Swiper';
 import './Detail.scss';
+
+
 
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
