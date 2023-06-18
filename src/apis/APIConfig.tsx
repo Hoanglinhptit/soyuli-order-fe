@@ -1,6 +1,7 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import queryString from 'query-string';
-import * as config from "../helper/config"
+import fs from 'fs';
+import * as config from '../helper/config';
 
 const createAxios = (): AxiosInstance => {
   const axiosInstant = axios.create();
@@ -8,7 +9,7 @@ const createAxios = (): AxiosInstance => {
   axiosInstant.defaults.timeout = 20000;
   axios.defaults.headers.post['Content-Type'] =
     'application/x-www-form-urlencoded';
-  axios.defaults.headers.patch['Content-Type'] = 'application/json';
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   axiosInstant.interceptors.request.use(
     async (axiosConfig) => {
@@ -19,7 +20,7 @@ const createAxios = (): AxiosInstance => {
     },
     (error: any): Promise<never> => Promise.reject(error)
   );
-  
+
   axiosInstant.interceptors.response.use(
     function (response) {
       return response;
@@ -38,6 +39,35 @@ const createAxios = (): AxiosInstance => {
 };
 
 export const axiosClient = createAxios();
+const downloadXLSFile = async (url:string) => {
+  // Its important to set the 'Content-Type': 'blob' and responseType:'arraybuffer'.
+  const headers = { 'Content-Type': 'blob' };
+  const config: AxiosRequestConfig = {
+    method: 'GET',
+    url,
+    responseType: 'arraybuffer',
+    headers,
+  };
+
+  try {
+    const response = await axios(config);
+
+    const outputFilename = `${Date.now()}.xls`;
+
+    // If you want to download file automatically using link attribute.
+    const url = URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', outputFilename);
+    document.body.appendChild(link);
+    link.click();
+
+    // OR you can save/write file locally.
+    // fs.writeFileSync(outputFilename, response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // handle url
 function handleUrl(url: string, query: Record<string, any>) {
@@ -55,4 +85,5 @@ export const ApiClient = {
     axiosClient.patch(handleUrl(url, payload)),
   delete: (url: string, payload: Record<string, any>) =>
     axiosClient.delete(handleUrl(url, payload)),
+  downloadXLSFile
 };
