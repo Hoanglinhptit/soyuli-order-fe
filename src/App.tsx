@@ -9,7 +9,7 @@ import SOYULI_ROUTES from './routes/route';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Payment from './pages/payment';
 import News from './pages/news';
-import ShoppingCard from './pages/shopping-card'
+import ShoppingCard from './pages/shopping-card';
 
 export default function App() {
   const [cond, setCond] = useState<boolean>(
@@ -34,9 +34,6 @@ export default function App() {
   };
   return (
     <div>
-      <Helmet>
-        <title>Soyuli Order</title>
-      </Helmet>
       {!cond && (
         <Header
           onSearch={onSearch}
@@ -46,10 +43,10 @@ export default function App() {
         />
       )}
 
-      <div>
+      <div className="">
         <Routes>
           {SOYULI_ROUTES.map((e) => (
-            <Route path={e.path} element={e.element} />
+            <Route key={e.path} path={e.path} element={e.element} />
           ))}
           <Route path="/" element={<ProtectedRoute />}>
             <Route path="/payment" element={<News />} />

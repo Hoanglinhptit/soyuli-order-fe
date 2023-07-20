@@ -1,3 +1,3 @@
 const projectName = 'Soyuli Oder';
-const api = 'http://localhost:3001';
+const api = 'https://soyuli.onrender.com';
 export { projectName, api };

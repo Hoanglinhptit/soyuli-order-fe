@@ -1,9 +1,11 @@
-import React from 'react'
+import Product from '../../layouts/template_product_grid/Product';
 
 function Accessories() {
   return (
-    <div>index</div>
-  )
+    <div>
+      <Product />
+    </div>
+  );
 }
 
-export default Accessories
+export default Accessories;

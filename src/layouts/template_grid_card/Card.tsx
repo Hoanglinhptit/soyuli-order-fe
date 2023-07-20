@@ -4,9 +4,10 @@ import React from 'react';
 function Card() {
   return (
     <div>
-      <a href="#" className='cart-container'>
+      <a href="#" className="cart-container">
         ưasa
       </a>
+      <div>aaaaaa</div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { put, takeLatest, select } from 'redux-saga/effects'
 import *as actions from '../actions'
 import *as callAPI from '../../apis/apiClients'
 
-
 function* addCartSaga(action: any) : any{
     try {
         const response = yield callAPI.addCartRequest(action.payload)

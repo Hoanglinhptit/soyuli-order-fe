@@ -1,8 +1,5 @@
 /* eslint-disable react/function-component-definition */
-import React from 'react';
-import { Route, Navigate , Outlet} from 'react-router-dom';
-
-
+import { Route, Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = (props: any) => {
   // Implement logic to check if user is authenticated
@@ -12,7 +9,7 @@ const ProtectedRoute = (props: any) => {
     return <Navigate to="/auth/login" />;
   }
 
-  return <Outlet/>;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

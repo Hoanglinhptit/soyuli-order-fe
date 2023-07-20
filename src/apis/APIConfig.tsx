@@ -39,7 +39,8 @@ const createAxios = (): AxiosInstance => {
 };
 
 export const axiosClient = createAxios();
-const downloadXLSFile = async (url:string) => {
+
+const downloadXLSFile = async (url:string, fileName : string) => {
   // Its important to set the 'Content-Type': 'blob' and responseType:'arraybuffer'.
   const headers = { 'Content-Type': 'blob' };
   const config: AxiosRequestConfig = {
@@ -51,10 +52,7 @@ const downloadXLSFile = async (url:string) => {
 
   try {
     const response = await axios(config);
-
-    const outputFilename = `${Date.now()}.xls`;
-
-    // If you want to download file automatically using link attribute.
+    const outputFilename = `${Date.now()}_${fileName}.xls`;
     const url = URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement('a');
     link.href = url;

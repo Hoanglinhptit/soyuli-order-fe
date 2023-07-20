@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   ShoppingOutlined,
   SearchOutlined,
@@ -6,10 +5,10 @@ import {
 } from '@ant-design/icons';
 import { useLocation, Link } from 'react-router-dom';
 import { Button, AutoComplete, Input, Breadcrumb } from 'antd';
-import './Header.scss';
 import { RootState } from '../../redux/store';
 import { useAppSelector } from '../../redux/hooks';
-import Logo from '../../assets/logo/Logo.svg'
+import HeaderLink from './HeaderLink';
+import Logo from '../../assets/logo/Logo.svg';
 
 // interface PropsType = {
 //   textSearch : String;
@@ -25,8 +24,7 @@ export default function Header(props: Props) {
   const { onSearch, onChange, onSeclect, value } = props;
   const isAuth = localStorage.getItem('token');
   const auth = useAppSelector((state: RootState) => state.AuthReducer);
-  console.log("auth????", auth);
-  
+
   const breadcrumbNameMap: Record<string, string> = {
     '/products': 'Products',
     '/news': 'News',
@@ -36,7 +34,7 @@ export default function Header(props: Props) {
     '/products/houseware': 'Houseware',
     '/products/decorations': 'Decorations',
     '/products/funiture': 'Funiture',
-    '/products/detail': "Detail"
+    '/products/detail': 'Detail',
   };
   const location = useLocation();
   const pathSnippets = location.pathname.split('/').filter((i) => i);
@@ -56,71 +54,60 @@ export default function Header(props: Props) {
   ].concat(extraBreadcrumbItems);
 
   return (
-    <div className="header-container">
-      <div className="header-grid">
-        <nav className="header_navbar--container">
-          <div className="header-logo">
-            <a href="/" className="header-item-link">
-              <img src={Logo} alt="Logo" className="header-logo-img" />
+    <div className="h-[130px] w-full mb-14">
+      <div className="my-0 mx-auto max-w-full 2xl:w-[1340px]">
+        <nav className="flex justify-between h-20 ">
+          <div className="w-52 flex justify-center items-center mt-2 ">
+            <a href="/" className="no-underline text-transparent">
+              <img src={Logo} alt="Logo" className="w-52 h-16" />
             </a>
           </div>
 
-          <div className="header-navbar-search">
-            <div className="autocomplete-container">
+          <div className="2xl:w-[580px] ml-3 flex justify-center items-center text-center ">
+            <div className="flex w-full ">
               <AutoComplete
                 value={value}
                 onSearch={onSearch}
                 onSelect={onSeclect}
                 onChange={onChange}
+                className="w-full"
               >
-                <Input className="search-input" placeholder="Searching" />
+                <Input className="w-full" placeholder="Searching" />
               </AutoComplete>
-              <Button className="search-button" onClick={() => onSearch}>
+              <Button className="ml-2 bg-[#d6d3cd]" onClick={() => onSearch}>
                 <SearchOutlined />
               </Button>
             </div>
           </div>
-          <div className="header-navbar_list-wrapper">
-            <ul className="header-navbar-list">
-              <li className="header-navbar-item">
-                <a href="/news" className="header-item-link">
-                  News
-                </a>
+          <div className="items-center w-[440px] h-full ">
+            <ul className="flex list-none pl-3 h-full justify-around">
+              <li className="no-underline text-transparent flex list-none items-center ">
+                <HeaderLink href="/news">News</HeaderLink>
               </li>
-              <li className="header-navbar-item">
-                <a href="/" className="header-item-link">
-                  About
-                </a>
+              <li className="no-underline text-transparent flex list-none items-center ">
+                <HeaderLink href="/news">About</HeaderLink>
               </li>
-              <li className="header-navbar-item">
-                <a href="/" className="header-item-link">
-                  Help
-                </a>
+              <li className="no-underline text-transparent flex list-none items-center ">
+                <HeaderLink href="/news">Help</HeaderLink>
               </li>
-              <li className="header-navbar-item shoping-card">
-                <a href="/" className="header-item-link">
+              <li className="no-underline text-transparent flex list-none items-center ">
+                <HeaderLink href="/news" className="mt-[-7px]">
                   <ShoppingOutlined style={{ fontSize: '1.3rem' }} />
-                </a>
+                </HeaderLink>
               </li>
-              <li className="header-navbar-item-authen">
+              <li>
                 {!isAuth ? (
-                  <ul className="header-navbar--authen">
+                  <ul className="flex justify-evenly w-48 h-full items-center text-[1.3rem] font-light">
                     <li>
-                      <a href="/auth/login" className="header-item-link">
-                        Login
-                      </a>
+                      <HeaderLink href="/news">Login</HeaderLink>
                     </li>
                     <li>
-                      <a href="/" className="header-item-link">
-                        Sign Up
-                      </a>
+                      <HeaderLink href="/news">Sign Up</HeaderLink>
                     </li>
                   </ul>
                 ) : (
-                  <div className="user-wrapper">
-                    <span className="header-navbar--user">
-                      Hi,!
-                    </span>
+                  <div className="w-full h-full flex justify-between items-center">
+                    <span className="">Hi,Linh!</span>
                     <Button
                       style={{ border: 'none' }}
                       onClick={() => {
@@ -136,48 +123,38 @@ export default function Header(props: Props) {
             </ul>
           </div>
         </nav>
-        
       </div>
-      <div className="header_bread-scrum">
-        <div className="header-grid">
-          <ul className="header_bread-scrum-list">
-            <li className="header_bread-scrum-item">
-              <a href="/products/shoes" className="header-item-link">
-                Shoes
-              </a>
+      <div className="bg-[#d6d3cd] w-full my-0 mx-auto h-10">
+        <div className="my-0 mx-auto max-w-full 2xl:w-[1340px]">
+          <ul className="flex justify-evenly items-center text-[1.3rem] h-10 font-normal ">
+            <li className="">
+              <HeaderLink href="/news">Shoes</HeaderLink>
             </li>
-            <li className="header_bread-scrum-item">
-              <a href="/products/accessories" className="header-item-link">
-                Accessories
-              </a>
+            <li className="">
+              <HeaderLink href="/products/accessories">Accessories</HeaderLink>
             </li>
-            <li className="header_bread-scrum-item">
-              <a href="/products/clothes" className="header-item-link">
-                Clothes
-              </a>
+            <li className="">
+              <HeaderLink href="/news">Clothes</HeaderLink>
             </li>
-            <li className="header_bread-scrum-item">
-              <a href="/products/houseware" className="header-item-link">
-                Houseware
-              </a>
+            <li className="">
+              <HeaderLink href="/news">Houseware</HeaderLink>
             </li>
-            <li className="header_bread-scrum-item">
-              <a href="/products/decorations" className="header-item-link">
-                Decorations
-              </a>
+            <li className="">
+              <HeaderLink href="/news">Decorations</HeaderLink>
             </li>
-            <li className="header_bread-scrum-item">
-              <a href="/products/funiture" className="header-item-link">
-                Furniture
-              </a>
+            <li className="">
+              <HeaderLink href="/news">Furniture</HeaderLink>
             </li>
           </ul>
         </div>
       </div>
 
-     
-      <div className='header-grid-bread'> <Breadcrumb style={{fontSize:'1rem', marginTop:'16px'}}>{breadcrumbItems}</Breadcrumb></div>
-     
+      <div className="my-0 mx-auto 2xl:w-[1100px]">
+        {' '}
+        <Breadcrumb style={{ fontSize: '1rem', marginTop: '16px' }}>
+          {breadcrumbItems}
+        </Breadcrumb>
+      </div>
     </div>
   );
 }
