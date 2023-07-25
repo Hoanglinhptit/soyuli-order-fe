@@ -53,7 +53,7 @@ $basedWidth: 1200px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 40px;
-   
+
     .page-detail-big-image {
       @include responsiveDetail(desktop) {
         width: 400px;
@@ -61,19 +61,19 @@ $basedWidth: 1200px;
       @include responsiveDetail(laptop) {
         width: 350px;
       }
-  
+
       @include responsiveDetail(mobile) {
         width: 95%;
       }
       @include responsiveDetail(tablet) {
         width: 90%;
       }
-      
+
       background-color: #fff;
       border-radius: 6px;
     }
   }
-  .page-detail-tab{
+  .page-detail-tab {
     width: 90%;
     margin: 0 auto;
   }
@@ -152,7 +152,7 @@ $basedWidth: 1200px;
   }
   .title-product {
     color: #080000;
-    font-size: 2.0rem;
+    font-size: 2rem;
     line-height: 30px;
     margin: 0px;
     margin-bottom: 8px;
@@ -174,24 +174,24 @@ $basedWidth: 1200px;
     margin-bottom: 8px;
   }
 }
-.promotion-list{
+.promotion-list {
   font-size: 14px;
   color: #5a1c48;
   line-height: 24px;
   font-family: 'Arial', sans-serif;
   margin-bottom: 16px;
-  .promotion-item{
+  .promotion-item {
     span {
       margin-left: 5px;
     }
   }
 }
-.product-button-handle{
+.product-button-handle {
   display: flex;
   justify-content: space-evenly;
   height: 50px;
   width: 100%;
-  button{
+  button {
     font-size: 20px;
     outline: none;
     border: none;
@@ -202,24 +202,23 @@ $basedWidth: 1200px;
     line-height: inherit;
     width: 50%;
     border-radius: 3px;
-    background: #494040;
-    font-family: "Open+Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    background: #c0ae8a;
+    font-family: 'Open+Sans', 'HelveticaNeue', 'Helvetica Neue', sans-serif;
     margin-right: 5px;
     cursor: pointer;
   }
 }
-.product-selection-wraper{
+.product-selection-wraper {
   display: flex;
   height: 50px;
   margin-bottom: 8px;
   width: 100%;
   align-items: center;
-  span{
+  span {
     font-size: 1.2rem;
     font-weight: 500;
-    
   }
-  .product-selection{
+  .product-selection {
     margin-left: 30px;
     width: 60%;
   }

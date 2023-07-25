@@ -23,15 +23,13 @@ function* getProductSaga(action: ProductPayload): any {
     if (response.message !== 'success') {
       yield put(actions.getProductFailure(response.data));
     }
-    const { keySearch, totalPage } = yield select(
-      (state) => state.ProductReducer
-    );
+
     yield put(
       actions.getProductSuccess({
-        data: response.data.data,
-        totalPage: response.data.totalPage,
-        pageIndex: response.data.pageIndex,
-        keySearch: response.data.keySearch,
+        data: response.data.data.data,
+        totalPage: response.data.data.totalPage,
+        pageIndex: response.data.data.pageIndex,
+        keySearch: response.data.data.keySearch,
       })
     );
   } catch (error) {
@@ -53,4 +51,4 @@ const ProductSaga = [
   takeLatest(actions.getProductRequest, getProductSaga),
   takeLatest(actions.getDetailProductRequest, getDetailProductSaga),
 ];
- export default ProductSaga;
+export default ProductSaga;

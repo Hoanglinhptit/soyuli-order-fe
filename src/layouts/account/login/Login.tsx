@@ -4,12 +4,16 @@
 import React from 'react';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  LockOutlined,
+  FacebookFilled,
+  GoogleOutlined,
+  InstagramOutlined,
+} from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import { loginRequest } from '../../../redux/actions';
-
-import './Login.scss';
 
 export default function Login() {
   const [account, setAccount] = React.useState({
@@ -35,19 +39,19 @@ export default function Login() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.data]);
   return (
-    <div className="bg-[#f0f2f5] flex w-full h-[100vh] justify-center items-center">
+    <div className="bg-[#e9e2d4] flex w-full h-[100vh] justify-center items-center">
       <div className="bg-[#fff] text-center w-[460px] shadow-[0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)] rounded-md">
-        <div className="mt-4">
-          <h2>ĐĂNG NHẬP</h2>
+        <div className="my-4">
+          <h2 className="text-2xl font-extrabold">SIGN IN</h2>
           <hr />
 
-          <div className="flex items-center justify-center relative my-0 mx-[6%] ">
-            <button className="py-[14px] px-6 bg-[#d6d3cd] text-[#000] rounded-[6px] hover:text-[#fff] ">
+          <div className="flex items-center justify-center relative my-7 mx-[10px] ">
+            <button className="py-[14px] px-6 bg-[#f4f3f1] text-[#000] rounded-[6px] hover:text-[#fff] ">
               <UserOutlined />
             </button>
             <DebounceInput
               debounceTimeout={5000}
-              className="w-full pt-[12px] pb-[50px] pl-[12px] pr-[12px] outline-none text-lg border-solid-[0.5px #c8c9ca] "
+              className="w-[90%] py-auto outline-none text-lg border-solid-[0.5px #c8c9ca] mx-3 "
               placeholder="Email"
               onChange={(e) => {
                 setAccount({
@@ -57,12 +61,12 @@ export default function Login() {
               }}
             />
           </div>
-          <div className="flex items-center justify-center relative my-0 mx-[6%]">
-            <button className="py-[14px] px-6 bg-[#d6d3cd] text-[#000] rounded-[6px] hover:text-[#fff]">
+          <div className="flex items-center justify-center relative  my-7  mx-[10px]">
+            <button className="py-[14px] px-6 bg-[#f4f3f1] text-[#000] rounded-[6px] hover:text-[#fff]">
               <LockOutlined />
             </button>
             <DebounceInput
-              className="w-full pt-[12px] pb-[50px] pl-[12px] pr-[12px] outline-none text-lg border-solid-[0.5px #c8c9ca]"
+              className="w-[90%] py-auto outline-none text-lg border-solid-[0.5px #c8c9ca] mx-3"
               type={show === true ? 'text' : 'password'}
               placeholder="****"
               debounceTimeout={5000}
@@ -74,22 +78,37 @@ export default function Login() {
               }}
             />
           </div>
-          <span className="ml-[286px] cursor-pointer">Quên mật khẩu?</span>
-          <div className="flex justify-between my-[40px] mx-[6%] mb-[24px]">
-            <a className="bg-[#d6d3cd] border-none py-[11px] px-[22px] text-[#000] font-medium rounded-md text-[1.2rem] no-underline hover:text-[#fff]">
-              Tạo tài khoản mới
+          <span className="ml-[286px] cursor-pointer">Forgot passwords ?</span>
+          <div className="flex justify-around my-[40px] mx-[6%] mb-[24px]">
+            <a
+              href=""
+              className="bg-[#f4f3f1] border-none py-[11px] px-[22px] text-[#000] font-medium rounded-md text-[1.2rem] no-underline hover:text-[#fff]"
+            >
+              SIGN UP
             </a>
             <a className="">
               <button
-                className="bg-[#d6d3cd] border-none py-[11px] px-[22px] text-[#000] font-medium rounded-md text-[1.2rem] no-underline hover:text-[#fff]"
+                className="bg-[#f4f3f1] border-none py-[11px] px-[22px] text-[#000] font-medium rounded-md text-[1.2rem] no-underline hover:text-[#fff]"
                 onClick={() => {
                   dispatch(loginRequest(account));
                 }}
               >
-                Đăng nhập
+                SIGN IN
               </button>
             </a>
           </div>
+        </div>
+        <div className="flex xl:h-18 justify-evenly mb-7">
+          {' '}
+          <a href="http://" className="h-full text-lg">
+            <FacebookFilled className="text-3xl" />
+          </a>
+          <a href="http://" className="h-full text-lg">
+            <GoogleOutlined className="text-3xl" />
+          </a>
+          <a href="http://" className="h-full text-lg">
+            <InstagramOutlined className="text-3xl" />
+          </a>
         </div>
       </div>
     </div>

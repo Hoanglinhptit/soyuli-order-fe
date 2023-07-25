@@ -13,14 +13,16 @@ import {
 export default function Footer() {
   return (
     <div className="bg-[#242424] text-[#ffff]">
-      <div className="mt-0 mb-0 mr-[135px] ml-[135px]">
+      <div className="mt-0 mb-0 2xl:mx-[135px] xl:mx-[100px]">
         <h1 className="font-bold pt-[35px] pb-[35px] pr-0 pl-0 text-5xl">
           Soyuli.Access the Now.
         </h1>
         <div>
           <Row>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Air Jordan</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Air Jordan
+              </p>
               <p className="text-[1rem] my-[10px]">Air Jordan 1</p>
               <p className="text-[1rem] my-[10px]">Air Jordan Release Dates</p>
               <p className="text-[1rem] my-[10px]">Womens Jordans</p>
@@ -29,7 +31,9 @@ export default function Footer() {
               <p className="text-[1rem] my-[10px]">Jordan 1 Mid</p>
             </Col>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Yeezy</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Yeezy
+              </p>
               <p className="text-[1rem] my-[10px]">Yeezy Boost 350</p>
               <p className="text-[1rem] my-[10px]">Yeezy Boost 350 V2</p>
               <p className="text-[1rem] my-[10px]">Yeezy Boost 700</p>
@@ -38,7 +42,9 @@ export default function Footer() {
               <p className="text-[1rem] my-[10px]">Yeezy Foam RNNR</p>
             </Col>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Popular Releases</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Popular Releases
+              </p>
               <p className="text-[1rem] my-[10px]">Lightning McQueen Crocs</p>
               <p className="text-[1rem] my-[10px]">NikeCraft GPS Yellow</p>
               <p className="text-[1rem] my-[10px]">Jordan 2 J Balvin</p>
@@ -47,7 +53,9 @@ export default function Footer() {
               <p className="text-[1rem] my-[10px]">Converse Chuck Taylor</p>
             </Col>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Apparel</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Apparel
+              </p>
               <p className="text-[1rem] my-[10px]">Supreme</p>
               <p className="text-[1rem] my-[10px]">Essentials</p>
               <p className="text-[1rem] my-[10px]">Chrome Hearts</p>
@@ -56,7 +64,9 @@ export default function Footer() {
               <p className="text-[1rem] my-[10px]">Yeezy GAP</p>
             </Col>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Nike</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Nike
+              </p>
               <p className="text-[1rem] my-[10px]">Nike Dunk</p>
               <p className="text-[1rem] my-[10px]">Nike Blazer</p>
               <p className="text-[1rem] my-[10px]">Nike Air Force 1</p>
@@ -65,7 +75,9 @@ export default function Footer() {
               <p className="text-[1rem] my-[10px]">Women's Nike Shoes</p>
             </Col>
             <Col span={4}>
-              <p className="font-medium text-[1.4rem]">Sell</p>
+              <p className="font-medium 2xl:text-[1.4rem] xl:text-[1.2rem]">
+                Sell
+              </p>
               <p className="text-[1rem] my-[10px]">Selling Guide</p>
               <p className="text-[1rem] my-[10px]">Professional Tools</p>
               <p className="text-[1rem] my-[10px]">Scout</p>

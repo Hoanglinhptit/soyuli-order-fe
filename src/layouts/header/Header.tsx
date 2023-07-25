@@ -55,7 +55,7 @@ export default function Header(props: Props) {
 
   return (
     <div className="h-[130px] w-full mb-14">
-      <div className="my-0 mx-auto max-w-full 2xl:w-[1340px]">
+      <div className="my-0 mx-auto max-w-full xl:w-[1200px] 2xl:w-[1340px]">
         <nav className="flex justify-between h-20 ">
           <div className="w-52 flex justify-center items-center mt-2 ">
             <a href="/" className="no-underline text-transparent">
@@ -63,7 +63,7 @@ export default function Header(props: Props) {
             </a>
           </div>
 
-          <div className="2xl:w-[580px] ml-3 flex justify-center items-center text-center ">
+          <div className="2xl:w-[580px] xl:w-[440px] ml-3 flex justify-center items-center text-center ">
             <div className="flex w-full ">
               <AutoComplete
                 value={value}
@@ -74,7 +74,7 @@ export default function Header(props: Props) {
               >
                 <Input className="w-full" placeholder="Searching" />
               </AutoComplete>
-              <Button className="ml-2 bg-[#d6d3cd]" onClick={() => onSearch}>
+              <Button className="ml-2 bg-[#f4f3f1]" onClick={() => onSearch}>
                 <SearchOutlined />
               </Button>
             </div>
@@ -99,7 +99,7 @@ export default function Header(props: Props) {
                 {!isAuth ? (
                   <ul className="flex justify-evenly w-48 h-full items-center text-[1.3rem] font-light">
                     <li>
-                      <HeaderLink href="/news">Login</HeaderLink>
+                      <HeaderLink href="/auth/login">Login</HeaderLink>
                     </li>
                     <li>
                       <HeaderLink href="/news">Sign Up</HeaderLink>
@@ -124,32 +124,32 @@ export default function Header(props: Props) {
           </div>
         </nav>
       </div>
-      <div className="bg-[#d6d3cd] w-full my-0 mx-auto h-10">
-        <div className="my-0 mx-auto max-w-full 2xl:w-[1340px]">
+      <div className="bg-[#f4f3f1] w-full my-0 mx-auto h-10">
+        <div className="my-0 mx-auto max-w-full xl:w-[1200px] 2xl:w-[1340px]">
           <ul className="flex justify-evenly items-center text-[1.3rem] h-10 font-normal ">
             <li className="">
-              <HeaderLink href="/news">Shoes</HeaderLink>
+              <HeaderLink href="/products/shoes">Shoes</HeaderLink>
             </li>
             <li className="">
               <HeaderLink href="/products/accessories">Accessories</HeaderLink>
             </li>
             <li className="">
-              <HeaderLink href="/news">Clothes</HeaderLink>
+              <HeaderLink href="/products/clothes">Clothes</HeaderLink>
             </li>
             <li className="">
-              <HeaderLink href="/news">Houseware</HeaderLink>
+              <HeaderLink href="/products/houseware">Houseware</HeaderLink>
             </li>
             <li className="">
-              <HeaderLink href="/news">Decorations</HeaderLink>
+              <HeaderLink href="/products/decorations">Decorations</HeaderLink>
             </li>
             <li className="">
-              <HeaderLink href="/news">Furniture</HeaderLink>
+              <HeaderLink href="/products/funiture">Furniture</HeaderLink>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="my-0 mx-auto 2xl:w-[1100px]">
+      <div className="my-0 mx-auto 2xl:w-[1100px] xl:w-[1000px]">
         {' '}
         <Breadcrumb style={{ fontSize: '1rem', marginTop: '16px' }}>
           {breadcrumbItems}

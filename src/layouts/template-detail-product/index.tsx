@@ -1,10 +1,11 @@
-import React from 'react'
-import DetailContainer from './DetailContainer'
+import DetailContainer from './DetailContainer';
 
 function index() {
   return (
-    <div><DetailContainer/></div>
-  )
+    <div>
+      <DetailContainer />
+    </div>
+  );
 }
 
-export default index
+export default index;

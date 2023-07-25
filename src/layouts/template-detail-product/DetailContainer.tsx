@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/self-closing-comp */
@@ -15,23 +16,16 @@ import { getProductRequest } from '../../redux/actions';
 import SwipperContainer from '../swipper-demo/Swiper';
 import './Detail.scss';
 
-
-
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
-const contentStyle: React.CSSProperties = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  color: '#fff',
-  alignItems: 'center',
-  justifyContent: 'center',
-
-  width: '28vw',
-};
 
 function DetailContainer() {
   const dispatch = useAppDispatch();
+  console.log('params receive??', useParams());
+
   const { id } = useParams();
+  console.log('id recept ???', id);
+
   // const ref = useRef();
   // const children = ref.current.children
 
@@ -42,58 +36,57 @@ function DetailContainer() {
 
   const DataTable = [
     {
-      rowName: 'Thương hiệu',
-      data: 'Đồ decor ',
+      rowName: 'Brand',
+      data: 'Decorations',
     },
     {
-      rowName: 'Xuất xứ thương hiệu',
-      data: 'Trung Quốc',
+      rowName: 'Brand Origin',
+      data: 'China',
     },
     {
-      rowName: 'Sản xuất tại',
-      data: 'Trung Quốc',
+      rowName: 'Produced In',
+      data: 'China',
     },
     {
       rowName: 'SKU',
       data: '000001',
     },
     {
-      rowName: 'Chất liệu',
+      rowName: 'Material',
       data: 'Cotton',
     },
     {
-      rowName: 'Chế độ bảo hành',
-      data: ' Bảo hành chính hãng 1 tháng theo phiếu bảo hành      ',
+      rowName: 'Warranty',
+      data: ' Genuine 1 month warranty according to the warranty card',
     },
     {
-      rowName: 'Hướng dẫn bảo quản',
+      rowName: 'Storage Instructions',
       data: (
         <div>
           <ul>
             <li>
-              Tránh mang sản phẩm khi trời mưa hoặc thời tiết xấu để chúng không
-              bị ướt dẫn đến bong tróc.
+              Avoid carrying the products in rainy or bad weather so that they
+              do not getting wet leads to peeling.
             </li>
             <li>
-              Cất giữ sản phẩm ở nơi thoáng mát để giữ gìn chất lượng của sản
-              phẩm ở mức tốt nhất.
+              Store the product in a cool place to preserve its quality product
+              at its best.
             </li>
-            <li>Lau chùi sản phẩm thường xuyên để tránh bụi.</li>
+            <li>Clean the product regularly to avoid dust.</li>
           </ul>
         </div>
       ),
     },
     {
-      rowName: 'Quy cách đóng gói',
+      rowName: 'Packaging Specifications',
       data: (
         <div>
           <ul>
-            <li>Đồ order</li>
-            <li>Hộp nguyên bản của mẫu order</li>
-            <li>Hộp chống xốc gắn phiếu thông quan </li>
-            <li>Phiếu bảo hành nguyên mẫu của hãng</li>
-            <li>Phiếu bảo hành của hãng</li>
-            <li>Tem chứng nhận tiêu chuẩn của hàng nội địa </li>
+            <li>Orders</li>
+            <li>Original box of order items</li>
+            <li>Shockproof box with clearance ticket</li>
+            <li>Original manufacturer's warranty card</li>
+            <li>Standard stamps of domestic products</li>
           </ul>
         </div>
       ),
@@ -101,11 +94,11 @@ function DetailContainer() {
   ];
   const columns = [
     {
-      title: 'Các thông tin',
+      title: 'The information',
       dataIndex: 'rowName',
     },
     {
-      title: 'Chi tiết',
+      title: 'Details',
       dataIndex: 'data',
     },
   ];
@@ -123,20 +116,21 @@ function DetailContainer() {
             <div className="page-detail-product">
               <div className="product-names-details">
                 <h1 className="title-product">
-                  Đệm dựa lưng My Baby Bear order nguyên chiếc 65*45cm
+                  Backrest cushion My Baby Bear order whole piece 65*45cm
                 </h1>
-                <span className="product-price">$1000</span>
+                <span className="product-price">$ 1000</span>
                 <div className="product-description ">
-                  Hottrend cập bến khuấy đảo thị trường gấu bông với hình ghế
-                  tựa bông siêu ấm, chất lông xù mềm mại, không rụng lông, an
-                  toàn với làn da nhạy cảm của các bé. Hướng dẫn bảo quản: Tránh
-                  dùng sản phẩm khi trời ẩm hoặc đặt lên nền nhà ẩm ...
+                  Hottrend arrives to stir up the teddy bear market with the
+                  image of a chair Super warm like cotton, soft fluffy, no hair
+                  loss, an Perfect for babies' sensitive skin. Care
+                  instructions: Avoid Use the product when it is humid or place
+                  it on a damp floor...
                 </div>
                 <ul className="promotion-list">
                   <li className="promotion-item">
                     <TagOutlined />
                     <span>
-                      Đăng ký để nhận thông báo mới nhất từ bản tin của shop
+                      Sign up to receive the latest from the shop's news
                     </span>
                   </li>
                   {/* <li className="promotion-item">
@@ -150,27 +144,27 @@ function DetailContainer() {
                   <li className="promotion-item">
                     <TagOutlined />
                     <span>
-                      Đối với các hóa đơn từ 300$ sẽ đc freeship kèm voucher
-                      giảm giá 10%
+                      For bills from 300$ will get free shipping with voucher
+                      10% discount%
                     </span>
                   </li>
                   <li className="promotion-item">
                     <TagOutlined />
                     <span>
-                      Đối với các hóa đơn từ 1000$ sẽ đc freeship kèm voucher
-                      giảm giá phí cân nặng
+                      For bills from 1000$ will get free shipping with weight
+                      discount voucher
                     </span>
                   </li>
                   <li className="promotion-item">
                     <TagOutlined />
-                    <span>Hỗ trợ phí ship COD</span>
+                    <span>Support COD shipping fee</span>
                   </li>
                 </ul>
                 <div className="product-selection-wraper">
-                  <span>Chọn mẫu</span>
+                  <span>Select</span>
                   <Select
                     showSearch
-                    className='product-selection'
+                    className="product-selection"
                     placeholder="Chọn mẫu"
                     optionFilterProp="children"
                     filterOption={(input, option) =>
@@ -198,13 +192,12 @@ function DetailContainer() {
                         value: '4',
                         label: 'Gấu nâu nhạt ',
                       },
-                      
                     ]}
                   />
                 </div>
                 <div className="product-quantity-wrapper"></div>
                 <div className="product-button-handle">
-                  <button>Oder</button>
+                  <button>Order</button>
                   <button>Add to card</button>
                 </div>
               </div>
@@ -213,7 +206,7 @@ function DetailContainer() {
           <div className="page-detail-tab">
             <Tabs defaultActiveKey="1" onChange={keyCallBack} size="large">
               <TabPane
-                tab="Mô Tả Sản Phẩm Chi tiết"
+                tab="Detailed Product Description"
                 key="1"
                 className="tab-header-item"
               >
@@ -223,15 +216,11 @@ function DetailContainer() {
                 {/* </Collapse> */}
               </TabPane>
               <TabPane
-                tab="Các sản phẩm liên quan"
+                tab="Related Products"
                 key="2"
                 className="tab-header-item"
               ></TabPane>
-              <TabPane
-                tab="Gửi đánh giá cho chúng tôi "
-                key="3"
-                className="tab-header-item"
-              >
+              <TabPane tab="FeedBacks" key="3" className="tab-header-item">
                 Content of Tab Pane 3
               </TabPane>
             </Tabs>
@@ -242,26 +231,26 @@ function DetailContainer() {
             <div className="wrap_modules-services">
               <div className="item-service">
                 <div className="content_service">
-                  <p>Giao hàng siêu tốc</p>
-                  <span>Nhận hàng trong 7 đến 14 ngày </span>
+                  <p>Fast delivery </p>
+                  <span>Receive goods in 7 to 14 days </span>
                 </div>
               </div>
               <div className="item-service">
                 <div className="content_service">
-                  <p>7 ngày đổi trả hàng </p>
-                  <span>Đổi trả nhanh chóng và dễ dàng</span>
+                  <p>7 days return and exchange </p>
+                  <span>Quick and easy returns</span>
                 </div>
               </div>
               <div className="item-service">
                 <div className="content_service">
-                  <p>Bảo hành chính hãng</p>
-                  <span>Bảo hành chính hãng 2 tháng</span>
+                  <p>Warranty genuine</p>
+                  <span>Genuine 2 months warranty</span>
                 </div>
               </div>
               <div className="item-service">
                 <div className="content_service">
-                  <p>Giá tốt nhất</p>
-                  <span>Tích điểm thành viên 5%</span>
+                  <p>Best price</p>
+                  <span>Earn 5% member points</span>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import * as config from '../helper/config';
 
 const createAxios = (): AxiosInstance => {
   const axiosInstant = axios.create();
-  axiosInstant.defaults.baseURL = config.api;
+  axiosInstant.defaults.baseURL = config.apiv1;
   axiosInstant.defaults.timeout = 20000;
   axios.defaults.headers.post['Content-Type'] =
     'application/x-www-form-urlencoded';
@@ -40,7 +40,7 @@ const createAxios = (): AxiosInstance => {
 
 export const axiosClient = createAxios();
 
-const downloadXLSFile = async (url:string, fileName : string) => {
+const downloadXLSFile = async (url: string, fileName: string) => {
   // Its important to set the 'Content-Type': 'blob' and responseType:'arraybuffer'.
   const headers = { 'Content-Type': 'blob' };
   const config: AxiosRequestConfig = {
@@ -83,5 +83,5 @@ export const ApiClient = {
     axiosClient.patch(handleUrl(url, payload)),
   delete: (url: string, payload: Record<string, any>) =>
     axiosClient.delete(handleUrl(url, payload)),
-  downloadXLSFile
+  downloadXLSFile,
 };
