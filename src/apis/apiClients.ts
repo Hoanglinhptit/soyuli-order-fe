@@ -12,8 +12,11 @@ const getProductRequest = (payload: Record<string, any>) =>
     parentCategory=${payload.parentCategory || ''}`,
     payload
   );
-const getDetailProductRequest = (payload: Record<string, any>) =>
-  ApiClient.get(`product/${payload.id}`, payload);
+const getDetailProductRequest = (payload: Record<string, any>) => {
+  console.log('call api active', payload);
+
+  return ApiClient.get(`product/${payload.id}`, payload);
+};
 
 const addCartRequest = (payload: Record<string, any>) =>
   ApiClient.post(`/cart`, payload);

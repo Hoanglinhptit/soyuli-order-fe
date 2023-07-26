@@ -12,7 +12,6 @@ interface Props {
 }
 export default function Product(props: Props) {
   const { data } = props;
-  console.log('receve props ?? data', data);
 
   const [category, setCategory] = useState<category[]>([]);
   const [isChecked, setIsChecked] = useState(false);
@@ -127,7 +126,7 @@ export default function Product(props: Props) {
             }
             <div className="w-full flex flex-wrap ">
               {data.map((e) => (
-                <div key={e.name} className="p-3 w-1/4 ">
+                <div key={e.sku} className="p-3 w-1/4 ">
                   <ProductCard data={e} />
                 </div>
               ))}

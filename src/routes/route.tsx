@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
 import Accessories from '../pages/accessories';
 import Decorations from '../pages/decorations';
 import Funiture from '../pages/furniture';
@@ -7,7 +9,14 @@ import Clothes from '../pages/clothes';
 import HouseWare from '../pages/houseware';
 import Login from '../layouts/account/login/Login';
 import DetailContainer from '../layouts/template-detail-product/DetailContainer';
+// import DetailContainer from '../layouts/template-detail-product/DetailContainer';
 
+// const DetailContainer = React.lazy(()=> import'../layouts/template-detail-product/DetailContainer');
+const DetailContainerLazy = React.lazy(() =>
+  import('../layouts/template-detail-product/DetailContainer').then(() => ({
+    default: DetailContainer,
+  }))
+);
 const SOYULI_ROUTES = [
   {
     path: '/auth/login',
@@ -15,7 +24,7 @@ const SOYULI_ROUTES = [
   },
   {
     path: '/products/detail/:id',
-    element: <DetailContainer />,
+    element: <DetailContainerLazy />,
   },
   {
     path: '/products/accessories',

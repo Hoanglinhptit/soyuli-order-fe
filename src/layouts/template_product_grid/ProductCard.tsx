@@ -5,7 +5,6 @@ import { HeartOutlined, PercentageOutlined } from '@ant-design/icons';
 
 export default function ProductCard(props: any) {
   const { isSale, data } = props;
-  console.log('card receive props', data);
 
   return (
     <a

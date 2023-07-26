@@ -14,8 +14,6 @@ const defaultState = {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = defaultState, action: any) => {
-  console.log('action??? ', action);
-
   switch (action.type) {
     case types.GET_PRODUCT_REQUEST:
     // case types.ADD_PRODUCT_REQUEST:
@@ -28,8 +26,6 @@ export default (state = defaultState, action: any) => {
         isLoading: true,
       };
     case types.GET_PRODUCT_SUCCESS:
-      console.log('data reducer??', state.data);
-
       return {
         ...state,
         isLoading: false,
@@ -52,7 +48,7 @@ export default (state = defaultState, action: any) => {
       return {
         ...state,
         isLoading: false,
-        dataDetail: action.payload,
+        dataDetail: action.payload.data,
       };
 
     case types.GET_PRODUCT_FAILURE:

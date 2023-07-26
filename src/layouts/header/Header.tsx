@@ -34,7 +34,7 @@ export default function Header(props: Props) {
     '/products/houseware': 'Houseware',
     '/products/decorations': 'Decorations',
     '/products/funiture': 'Funiture',
-    '/products/detail': 'Detail',
+    '/products/detail/:id': 'Detail',
   };
   const location = useLocation();
   const pathSnippets = location.pathname.split('/').filter((i) => i);

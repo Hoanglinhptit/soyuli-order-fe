@@ -28,9 +28,8 @@ function Accessories() {
   const ProductReducer = useAppSelector(
     (state: RootState) => state.ProductReducer
   );
-  console.log('Products', ProductReducer);
+
   const { data } = ProductReducer;
-  console.log('data ??', data);
 
   return (
     <div>

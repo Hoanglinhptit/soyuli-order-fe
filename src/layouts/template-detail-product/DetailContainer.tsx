@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable react/jsx-no-bind */
@@ -7,41 +8,45 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Image, Carousel, Tabs, Table, Collapse, Select } from 'antd';
 import { EyeOutlined, TagOutlined } from '@ant-design/icons';
-import { useAppDispatch } from '../../redux/hooks';
-import { getProductRequest } from '../../redux/actions';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getDetailProductRequest } from '../../redux/actions';
 import SwipperContainer from '../swipper-demo/Swiper';
+import { RootState } from '../../redux/store';
 import './Detail.scss';
 
-const { Panel } = Collapse;
 const { TabPane } = Tabs;
 
 function DetailContainer() {
   const dispatch = useAppDispatch();
-  console.log('params receive??', useParams());
-
   const { id } = useParams();
-  console.log('id recept ???', id);
-
-  // const ref = useRef();
-  // const children = ref.current.children
-
   useEffect(() => {
-    dispatch(getProductRequest({ pageIndex: 1, limit: 10, keySearch: '' }));
-    // children.children[currentIndex].className = "active"
+    dispatch(getDetailProductRequest({ id: id }));
   }, []);
+  const ProductReducer = useAppSelector(
+    (state: RootState) => state.ProductReducer
+  );
+  const { dataDetail } = ProductReducer;
+  const sizes = JSON.parse(dataDetail.size);
+  const options = sizes?.map((e) => {
+    return {
+      value: e.name,
+      label: e.name,
+    };
+  });
+  console.log('options??? ', options);
 
   const DataTable = [
     {
-      rowName: 'Brand',
-      data: 'Decorations',
+      rowName: 'Feature',
+      data: `${dataDetail.parentCategory}`,
     },
     {
       rowName: 'Brand Origin',
-      data: 'China',
+      data: `Chinese ${dataDetail.brand}`,
     },
     {
       rowName: 'Produced In',
@@ -49,7 +54,7 @@ function DetailContainer() {
     },
     {
       rowName: 'SKU',
-      data: '000001',
+      data: `${dataDetail.sku}`,
     },
     {
       rowName: 'Material',
@@ -111,20 +116,14 @@ function DetailContainer() {
         <div className="page-detail-col-70">
           <div className="page-detail-product-garaley">
             <div className="page-detail-big-image">
-              <SwipperContainer />
+              <SwipperContainer image={dataDetail.image} />
             </div>
             <div className="page-detail-product">
               <div className="product-names-details">
-                <h1 className="title-product">
-                  Backrest cushion My Baby Bear order whole piece 65*45cm
-                </h1>
-                <span className="product-price">$ 1000</span>
+                <h1 className="title-product">{dataDetail.name}</h1>
+                <span className="product-price">$ {dataDetail.price}</span>
                 <div className="product-description ">
-                  Hottrend arrives to stir up the teddy bear market with the
-                  image of a chair Super warm like cotton, soft fluffy, no hair
-                  loss, an Perfect for babies' sensitive skin. Care
-                  instructions: Avoid Use the product when it is humid or place
-                  it on a damp floor...
+                  {dataDetail.description}
                 </div>
                 <ul className="promotion-list">
                   <li className="promotion-item">
@@ -159,13 +158,17 @@ function DetailContainer() {
                     <TagOutlined />
                     <span>Support COD shipping fee</span>
                   </li>
+                  <li className="promotion-item">
+                    <TagOutlined />
+                    <span>{dataDetail.views} people viewed the product</span>
+                  </li>
                 </ul>
                 <div className="product-selection-wraper">
-                  <span>Select</span>
+                  <span>Select type</span>
                   <Select
                     showSearch
                     className="product-selection"
-                    placeholder="Chọn mẫu"
+                    placeholder="Select sample"
                     optionFilterProp="children"
                     filterOption={(input, option) =>
                       (option?.label ?? '').includes(input)
@@ -175,24 +178,7 @@ function DetailContainer() {
                         .toLowerCase()
                         .localeCompare((optionB?.label ?? '').toLowerCase())
                     }
-                    options={[
-                      {
-                        value: '1',
-                        label: 'Gấu nâu đậm',
-                      },
-                      {
-                        value: '2',
-                        label: 'Vịt vàng',
-                      },
-                      {
-                        value: '3',
-                        label: 'Gấu loster hồng',
-                      },
-                      {
-                        value: '4',
-                        label: 'Gấu nâu nhạt ',
-                      },
-                    ]}
+                    options={options}
                   />
                 </div>
                 <div className="product-quantity-wrapper"></div>

@@ -37,8 +37,12 @@ function* getProductSaga(action: ProductPayload): any {
   }
 }
 function* getDetailProductSaga(action: ProductDetail): any {
+  console.log(action);
+
   try {
     const res = yield callAPI.getDetailProductRequest(action.payload);
+    console.log('response saga', res);
+
     if (res.message !== 'success') {
       yield put(actions.getDetailProductFailure(res.data));
     }

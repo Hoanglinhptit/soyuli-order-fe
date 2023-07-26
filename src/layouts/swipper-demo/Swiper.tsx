@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -15,7 +16,18 @@ import './swiper.scss';
 
 import { typeSwiper } from './typeSwipper';
 
-export default function SwipperContainer() {
+type Props = {
+  image: [
+    {
+      _id: string;
+      url: string;
+      fileName: string;
+      isPriority: boolean;
+    }
+  ];
+};
+
+export default function SwipperContainer({ image }: Props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<typeSwiper | null>(null);
   return (
     <>
@@ -26,48 +38,12 @@ export default function SwipperContainer() {
         thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
         modules={[FreeMode, Navigation, Thumbs]}
         className="product-images-slider"
-        // style={{
-        //     "--swiper-navigation-color": "#fff",
-        //     "--swiper-pagination-color": "#fff",
-        //   }}
       >
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            // src="https://swiperjs.com/demos/images/nature-1.jpg"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="slider-image"
-            src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-          />
-        </SwiperSlide>
+        {image?.map((e) => (
+          <SwiperSlide key={e._id}>
+            <Image className="slider-image" src={e.url} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         loop={true}
@@ -79,39 +55,13 @@ export default function SwipperContainer() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="product-images-slider-thumbs"
       >
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img
-              // src="https://swiperjs.com/demos/images/nature-1.jpg"
-              src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="product-images-slider-thumbs-wrapper">
-            <img src="https://soyuli-order-photos.s3.us-east-2.amazonaws.com/anh_do_su/mau-hong.jpg" />
-          </div>
-        </SwiperSlide>
+        {image?.map((e) => (
+          <SwiperSlide key={e._id}>
+            <div className="product-images-slider-thumbs-wrapper">
+              <img src={e.url} />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
