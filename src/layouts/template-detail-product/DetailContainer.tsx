@@ -26,19 +26,20 @@ function DetailContainer() {
   useEffect(() => {
     dispatch(getDetailProductRequest({ id: id }));
   }, []);
+
   const ProductReducer = useAppSelector(
     (state: RootState) => state.ProductReducer
   );
   const { dataDetail } = ProductReducer;
-  const sizes = JSON.parse(dataDetail.size);
-  const options = sizes?.map((e) => {
-    return {
-      value: e.name,
-      label: e.name,
-    };
-  });
-  console.log('options??? ', options);
-
+  // const sizes = JSON.parse(dataDetail.size);
+  // const options = sizes?.map((e) => {
+  //   return {
+  //     value: e.name,
+  //     label: e.name,
+  //   };
+  // });
+  // console.log('options??? ', options);
+  const [selectedValue, setSelectedValue] = useState(null);
   const DataTable = [
     {
       rowName: 'Feature',
@@ -178,7 +179,11 @@ function DetailContainer() {
                         .toLowerCase()
                         .localeCompare((optionB?.label ?? '').toLowerCase())
                     }
-                    options={options}
+                    options={{
+                      value: '1',
+                      label: 'Gấu nâu đậm',
+                    }}
+                    onChange={() => {}}
                   />
                 </div>
                 <div className="product-quantity-wrapper"></div>
