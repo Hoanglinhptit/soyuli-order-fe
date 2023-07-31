@@ -31,7 +31,7 @@ function DetailContainer() {
     (state: RootState) => state.ProductReducer
   );
   const { dataDetail } = ProductReducer;
-  // const sizes = JSON.parse(dataDetail.size);
+  // const sizes = JSON.parse(dataDetail.size ? '[]' : dataDetail);
   // const options = sizes?.map((e) => {
   //   return {
   //     value: e.name,
@@ -167,22 +167,21 @@ function DetailContainer() {
                 <div className="product-selection-wraper">
                   <span>Select type</span>
                   <Select
-                    showSearch
                     className="product-selection"
                     placeholder="Select sample"
                     optionFilterProp="children"
-                    filterOption={(input, option) =>
-                      (option?.label ?? '').includes(input)
-                    }
-                    filterSort={(optionA, optionB) =>
-                      (optionA?.label ?? '')
-                        .toLowerCase()
-                        .localeCompare((optionB?.label ?? '').toLowerCase())
-                    }
-                    options={{
-                      value: '1',
-                      label: 'Gấu nâu đậm',
-                    }}
+                    // filterOption={(input, option) =>
+                    //   (option?.label ?? '').includes(input)
+                    // }
+                    // filterSort={(optionA, optionB) =>
+                    //   (optionA?.label ?? '')
+                    //     .toLowerCase()
+                    //     .localeCompare((optionB?.label ?? '').toLowerCase())
+                    // }
+                    // options={{
+                    //   value: '1',
+                    //   label: 'Gấu nâu đậm',
+                    // }}
                     onChange={() => {}}
                   />
                 </div>

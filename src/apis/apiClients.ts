@@ -9,12 +9,12 @@ const getProductRequest = (payload: Record<string, any>) =>
     `product?pageIndex=${payload.pageIndex}&&limit=${constanst.LIMIT}&&type=${
       payload.type || ''
     }&&brand=${payload.brand || ''}&&keySearch=${payload.keySearch || ''} 
-    parentCategory=${payload.parentCategory || ''}`,
+    parentCategory=${payload.parentCategory || ''}&&category=${
+      payload.category || []
+    }`,
     payload
   );
 const getDetailProductRequest = (payload: Record<string, any>) => {
-  console.log('call api active', payload);
-
   return ApiClient.get(`product/${payload.id}`, payload);
 };
 

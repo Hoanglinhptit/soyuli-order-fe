@@ -125,7 +125,7 @@ export default function Product(props: Props) {
               // product list and pagination
             }
             <div className="w-full flex flex-wrap ">
-              {data.map((e) => (
+              {data?.map((e) => (
                 <div key={e.sku} className="p-3 w-1/4 ">
                   <ProductCard data={e} />
                 </div>

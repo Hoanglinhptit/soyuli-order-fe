@@ -39,7 +39,9 @@ export default function ProductCard(props: any) {
       </h4>
       <div className="flex mx-[8px] my-[6px] items-center justify-between h-[40px] ">
         {isSale ? (
-          <p className="font-semibold text-2xl text-[#FF0000]">$ Infinity</p>
+          <p className="font-semibold text-2xl text-[#FF0000]">
+            $ {data.price}
+          </p>
         ) : (
           <p className="font-semibold text-2xl">$ {data.price}</p>
         )}

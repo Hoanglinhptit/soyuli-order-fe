@@ -9,7 +9,6 @@ function Accessories() {
   const dispatch = useAppDispatch();
   const [params, setParams] = useState({
     keySearch: String,
-    parentCategory: String,
     pageIndex: Number,
     limit: Number,
     type: String,

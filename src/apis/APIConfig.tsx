@@ -26,7 +26,7 @@ const createAxios = (): AxiosInstance => {
       return response;
     },
     function (error) {
-      if (error.response.status === 401) {
+      if (error?.response?.status === 401) {
         // store.dispatch(logoutAction());
         localStorage.removeItem('token');
         window.location.reload();
