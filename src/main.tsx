@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import App from './App';
 import './index.css';
-
+//  git mirror
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
