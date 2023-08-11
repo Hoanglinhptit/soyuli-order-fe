@@ -17,6 +17,13 @@ const getProductRequest = (payload: Record<string, any>) =>
 const getDetailProductRequest = (payload: Record<string, any>) => {
   return ApiClient.get(`product/${payload.id}`, payload);
 };
+const getCategoryRequest = (payload: Record<string, any>) =>
+  ApiClient.get(
+    `category?keySearch=${payload.keySearch || ''}&&pageIndex=${
+      payload.pageIndex
+    }&&limit=${constanst.LIMIT}`,
+    payload
+  );
 
 const addCartRequest = (payload: Record<string, any>) =>
   ApiClient.post(`/cart`, payload);
@@ -44,4 +51,5 @@ export {
   getCartProductRequest,
   deleteCartRequest,
   getImgMediaRequest,
+  getCategoryRequest,
 };

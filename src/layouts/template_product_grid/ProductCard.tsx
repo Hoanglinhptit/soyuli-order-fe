@@ -10,10 +10,10 @@ export default function ProductCard(props: any) {
     <a
       className="block no-underline 
       bg-white rounded-[2px] text-inherit relative 
-      shadow-xl ease-in 
+      shadow-sm ease-in 
       will-change-transform 
       hover:translate-y-[-5px] 
-      hover:shadow-2xl"
+      hover:shadow"
       href={`/products/detail/${data._id}`}
     >
       {isSale && (
@@ -23,7 +23,7 @@ export default function ProductCard(props: any) {
         >
           <span className="font-normal text-xl">
             50
-            <PercentageOutlined className="text-sm" />
+            <PercentageOutlined className="text-sm" rev={undefined} />
           </span>
         </div>
       )}
@@ -45,7 +45,7 @@ export default function ProductCard(props: any) {
         ) : (
           <p className="font-semibold text-2xl">$ {data.price}</p>
         )}
-        <HeartOutlined className="text-2xl" />
+        <HeartOutlined className="text-2xl" rev={undefined} />
       </div>
     </a>
   );

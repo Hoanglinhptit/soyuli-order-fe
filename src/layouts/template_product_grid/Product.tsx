@@ -1,17 +1,25 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-unused-prop-types */
 import { Checkbox } from 'antd';
 import { useState } from 'react';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import ProductCard from './ProductCard';
 import { priceList, categoryList, parentCategory, typeLists } from './Mockdata';
+import { cx } from '../../utils';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 type category = {
   name: string;
 };
 interface Props {
   data: any[];
+  isloading: boolean;
+  categoryFilter?: any[];
+  feature?: string;
 }
 export default function Product(props: Props) {
-  const { data } = props;
+  const { data, isloading, categoryFilter, feature } = props;
+
+  const loading = isloading ? 'animate-pulse' : '';
 
   const [category, setCategory] = useState<category[]>([]);
   const [isChecked, setIsChecked] = useState(false);
@@ -62,11 +70,11 @@ export default function Product(props: Props) {
                 onChange={onChangeCategory}
                 className="block w-full text-sm font-normal"
               >
-                {categoryList.map((val, key) => (
+                {categoryFilter?.map((val, key) => (
                   <Checkbox
                     key={val.name}
                     value={val.name}
-                    className="first:ms-2 mb-1"
+                    className="first:ms-0 mb-1"
                     // onChange={handleCheckBoxChange(e.target.checked,val.name)}
                     checked={isChecked}
                   >
@@ -86,8 +94,8 @@ export default function Product(props: Props) {
                   <Checkbox
                     key={e.name}
                     value={e.name}
-                    className="first:ms-2 mb-1"
-                    onChange={() => setCategory([...category, e])}
+                    className="first:ms-0 mb-1"
+                    // onChange={() => setCategory([...category, e])}
                   >
                     {e.name}
                   </Checkbox>
@@ -105,7 +113,7 @@ export default function Product(props: Props) {
                   <Checkbox
                     key={e.name}
                     value={e.name}
-                    className="first:ms-2 mb-1"
+                    className="first:ms-0 mb-1"
                     onChange={() => setCategory([...category, e])}
                   >
                     {e.name}
@@ -124,9 +132,9 @@ export default function Product(props: Props) {
             {
               // product list and pagination
             }
-            <div className="w-full flex flex-wrap ">
+            <div className={cx('w-full flex flex-wrap', loading)}>
               {data?.map((e) => (
-                <div key={e.sku} className="p-3 w-1/4 ">
+                <div key={e.sku} className={cx('p-3 w-1/4', loading)}>
                   <ProductCard data={e} />
                 </div>
               ))}

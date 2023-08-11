@@ -24,6 +24,8 @@ export default function Header(props: Props) {
   const { onSearch, onChange, onSeclect, value } = props;
   const isAuth = localStorage.getItem('token');
   const auth = useAppSelector((state: RootState) => state.AuthReducer);
+  const detailpath = localStorage.getItem('dataDetail');
+  console.log('detail path', detailpath);
 
   const breadcrumbNameMap: Record<string, string> = {
     '/products': 'Products',
@@ -34,7 +36,7 @@ export default function Header(props: Props) {
     '/products/houseware': 'Houseware',
     '/products/decorations': 'Decorations',
     '/products/funiture': 'Funiture',
-    '/products/detail/:id': 'Detail',
+    '/products/detail': `${detailpath}`,
   };
   const location = useLocation();
   const pathSnippets = location.pathname.split('/').filter((i) => i);
@@ -75,7 +77,7 @@ export default function Header(props: Props) {
                 <Input className="w-full" placeholder="Searching" />
               </AutoComplete>
               <Button className="ml-2 bg-[#f4f3f1]" onClick={() => onSearch}>
-                <SearchOutlined />
+                <SearchOutlined rev={undefined} />
               </Button>
             </div>
           </div>
@@ -92,7 +94,10 @@ export default function Header(props: Props) {
               </li>
               <li className="no-underline text-transparent flex list-none items-center ">
                 <HeaderLink href="/news" className="mt-[-7px]">
-                  <ShoppingOutlined style={{ fontSize: '1.3rem' }} />
+                  <ShoppingOutlined
+                    style={{ fontSize: '1.3rem' }}
+                    rev={undefined}
+                  />
                 </HeaderLink>
               </li>
               <li>
@@ -115,7 +120,10 @@ export default function Header(props: Props) {
                         window.location.reload();
                       }}
                     >
-                      <LogoutOutlined style={{ fontSize: '1.2rem' }} />
+                      <LogoutOutlined
+                        style={{ fontSize: '1.2rem' }}
+                        rev={undefined}
+                      />
                     </Button>
                   </div>
                 )}

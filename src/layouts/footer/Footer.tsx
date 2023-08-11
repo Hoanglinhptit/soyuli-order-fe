@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className="bg-[#242424] text-[#ffff]">
+    <div className="bg-[#f4f3f1] text-[#000]">
       <div className="mt-0 mb-0 2xl:mx-[135px] xl:mx-[100px]">
         <h1 className="font-bold pt-[35px] pb-[35px] pr-0 pl-0 text-5xl">
           Soyuli.Access the Now.
@@ -88,24 +88,24 @@ export default function Footer() {
         <hr />
         <div className="flex justify-between mt-[20px]">
           <div>
-            <button className="py-[10px] px-[20px] bg-[rgb(62, 60, 60)] text-[#fff] border-solid border-[1px] border-[#fff]">
+            <button className="py-[10px] px-[20px] bg-[rgb(62, 60, 60)] text-[#000] border-solid border-[1px] border-[#000]">
               Vietnam | English | Currency
             </button>
           </div>
           <div>
             <p>Find Us on Social</p>
             <div className="flex justify-between mt-[10px]">
-              <TwitterOutlined />
-              <FacebookOutlined />
-              <InstagramOutlined />
-              <YoutubeOutlined />
+              <TwitterOutlined rev={undefined} />
+              <FacebookOutlined rev={undefined} />
+              <InstagramOutlined rev={undefined} />
+              <YoutubeOutlined rev={undefined} />
             </div>
           </div>
           <div>
             <p>Download Our App</p>
             <div className="flex justify-around mt-[10px] mb-4">
-              <AppleFilled />
-              <AndroidFilled />
+              <AppleFilled rev={undefined} />
+              <AndroidFilled rev={undefined} />
             </div>
           </div>
           <div>
@@ -113,7 +113,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="p-6 bg-black">
+      <div className="p-6 bg-[#c0ae8a]">
         <p className="font-[1rem] my-0 mx-24 py-0.5 px-0">
           HELP | HOW IT WORKS | PRIVACY | TERMS | JOBS | CONTACT | PRODUCT
           SUGGESTION | PRESS | YOUR PRIVACY CHOICES

@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as actions from '../actions';
-import *as callAPI from '../../apis/apiClients';
+import * as callAPI from '../../apis/apiClients';
 
 interface LoginPayload {
   payload: {

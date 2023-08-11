@@ -47,7 +47,7 @@ export default function Login() {
 
           <div className="flex items-center justify-center relative my-7 mx-[10px] ">
             <button className="py-[14px] px-6 bg-[#f4f3f1] text-[#000] rounded-[6px] hover:text-[#fff] ">
-              <UserOutlined />
+              <UserOutlined rev={undefined} />
             </button>
             <DebounceInput
               debounceTimeout={5000}
@@ -63,7 +63,7 @@ export default function Login() {
           </div>
           <div className="flex items-center justify-center relative  my-7  mx-[10px]">
             <button className="py-[14px] px-6 bg-[#f4f3f1] text-[#000] rounded-[6px] hover:text-[#fff]">
-              <LockOutlined />
+              <LockOutlined rev={undefined} />
             </button>
             <DebounceInput
               className="w-[90%] py-auto outline-none text-lg border-solid-[0.5px #c8c9ca] mx-3"
@@ -101,13 +101,13 @@ export default function Login() {
         <div className="flex xl:h-18 justify-evenly mb-7">
           {' '}
           <a href="http://" className="h-full text-lg">
-            <FacebookFilled className="text-3xl" />
+            <FacebookFilled className="text-3xl" rev={undefined} />
           </a>
           <a href="http://" className="h-full text-lg">
-            <GoogleOutlined className="text-3xl" />
+            <GoogleOutlined className="text-3xl" rev={undefined} />
           </a>
           <a href="http://" className="h-full text-lg">
-            <InstagramOutlined className="text-3xl" />
+            <InstagramOutlined className="text-3xl" rev={undefined} />
           </a>
         </div>
       </div>

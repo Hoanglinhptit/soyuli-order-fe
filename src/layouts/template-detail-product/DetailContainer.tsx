@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable object-shorthand */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -31,6 +32,7 @@ function DetailContainer() {
     (state: RootState) => state.ProductReducer
   );
   const { dataDetail } = ProductReducer;
+  localStorage.setItem('dataDetail', dataDetail._id);
   // const sizes = JSON.parse(dataDetail.size ? '[]' : dataDetail);
   // const options = sizes?.map((e) => {
   //   return {
@@ -128,39 +130,32 @@ function DetailContainer() {
                 </div>
                 <ul className="promotion-list">
                   <li className="promotion-item">
-                    <TagOutlined />
+                    <TagOutlined rev={undefined} />
                     <span>
                       Sign up to receive the latest from the shop's news
                     </span>
                   </li>
-                  {/* <li className="promotion-item">
-                    <TagOutlined />
-                    <span>Luôn bật thông báo để nhận được tin mới nhất</span>
-                  </li> */}
-                  {/* <li className="promotion-item">
-                    <TagOutlined />
-                    <span>Shop sẽ thông báo các khung giờ sale</span>
-                  </li> */}
+
                   <li className="promotion-item">
-                    <TagOutlined />
+                    <TagOutlined rev={undefined} />
                     <span>
                       For bills from 300$ will get free shipping with voucher
                       10% discount%
                     </span>
                   </li>
                   <li className="promotion-item">
-                    <TagOutlined />
+                    <TagOutlined rev={undefined} />
                     <span>
                       For bills from 1000$ will get free shipping with weight
                       discount voucher
                     </span>
                   </li>
                   <li className="promotion-item">
-                    <TagOutlined />
+                    <TagOutlined rev={undefined} />
                     <span>Support COD shipping fee</span>
                   </li>
                   <li className="promotion-item">
-                    <TagOutlined />
+                    <TagOutlined rev={undefined} />
                     <span>{dataDetail.views} people viewed the product</span>
                   </li>
                 </ul>
