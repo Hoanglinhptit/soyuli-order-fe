@@ -17,6 +17,7 @@ interface ProductDetail {
   };
   type: string;
 }
+
 function* getProductSaga(action: ProductPayload): any {
   try {
     const response = yield callAPI.getProductRequest(action.payload);

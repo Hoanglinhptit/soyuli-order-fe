@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-key */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
@@ -11,7 +13,7 @@ import Payment from './pages/payment';
 import News from './pages/news';
 import ShoppingCard from './pages/shopping-card';
 
-export default function App() {
+export const App: React.FC = () => {
   const [cond, setCond] = useState<boolean>(
     window.location.pathname === '/auth/login' ||
       window.location.pathname === '/register'
@@ -58,4 +60,4 @@ export default function App() {
       <Footer />
     </div>
   );
-}
+};

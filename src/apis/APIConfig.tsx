@@ -1,6 +1,10 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, {
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from 'axios';
 import queryString from 'query-string';
-import fs from 'fs';
 import * as config from '../helper/config';
 
 const createAxios = (): AxiosInstance => {
@@ -12,7 +16,7 @@ const createAxios = (): AxiosInstance => {
   axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   axiosInstant.interceptors.request.use(
-    async (axiosConfig) => {
+    async (axiosConfig: InternalAxiosRequestConfig) => {
       axiosConfig.headers.Authorization = `Bearer ${localStorage
         .getItem('token')
         ?.toString()}`;
@@ -22,7 +26,7 @@ const createAxios = (): AxiosInstance => {
   );
 
   axiosInstant.interceptors.response.use(
-    function (response) {
+    function (response: AxiosResponse) {
       return response;
     },
     function (error) {
